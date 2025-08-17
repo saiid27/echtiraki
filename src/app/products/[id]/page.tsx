@@ -16,7 +16,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         <img src={p.cover} alt={p.name} style={{ width: 140, height: 140, objectFit: "contain", background: "#f6f6f6", borderRadius: 8 }} />
         <p style={{ marginTop: 12 }}>{p.description}</p>
         <div style={{ marginTop: 12 }}><b>${(p.priceCents / 100).toFixed(2)}</b> / شهر</div>
-        <button onClick={() => router.push("/contact")} style={{ marginTop: 12, padding: "10px 16px", border: "1px solid #0a7", borderRadius: 8, cursor: "pointer" }}>
+        <button onClick={() => router.push("/contact")}
+                style={{ marginTop: 12, padding: "10px 16px", border: "1px solid #0a7", borderRadius: 8, cursor: "pointer" }}>
           اطلب الآن (تجريبي)
         </button>
       </main>
