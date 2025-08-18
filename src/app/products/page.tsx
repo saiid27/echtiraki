@@ -1,62 +1,73 @@
+"use client";
 import Nav from "../../components/Nav";
-import { products } from "../../data/products";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default function Products() {
+type Prod = { slug:string; name:string; short:string; cover:string; price_cents:number; period_text:string; sold:number; category:string; stock:number };
+
+const CATS = [
+  {key:"all", label:"All"},
+  {key:"ai", label:"AI"},
+  {key:"media", label:"Audio & Video"},
+  {key:"tools", label:"Tools"},
+];
+
+export default function Products(){
+  const [cat,setCat] = useState("all");
+  const [items,setItems] = useState<Prod[]>([]);
+
+useEffect(() => {
+  (async () => {
+    try {
+      const res = await fetch(`/api/products?cat=${cat}`);
+      if (!res.ok) {
+        // اطبع نص الردّ لمعرفة الخطأ الحقيقي
+        const txt = await res.text();
+        throw new Error(`API ${res.status}: ${txt}`);
+      }
+      const data = await res.json();
+      setItems(data);
+    } catch (err) {
+      console.error(err);
+      setItems([]); // عشان ما يكسر الصفحة
+    }
+  })();
+}, [cat]);
+
+
   return (
     <>
       <Nav />
-      <main
-        style={{
-          maxWidth: 1000,
-          margin: "32px auto",
-          padding: 16,
-          display: "grid",
-          gap: 16,
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-        }}
-      >
-        {products.map((p) => (
-          <div
-            key={p.id}
-            style={{
-              background: "#fff",
-              border: "1px solid #eee",
-              borderRadius: 10,
-              overflow: "hidden",
-            }}
-          >
-            <img
-              src={p.cover}
-              alt={p.name}
-              style={{
-                width: "100%",
-                height: 150,
-                objectFit: "contain",
-                background: "#f6f6f6",
-              }}
-            />
-            <div style={{ padding: 12 }}>
-              <b>{p.name}</b>
-              <div style={{ color: "#666", margin: "6px 0" }}>{p.short}</div>
-              <div style={{ margin: "8px 0" }}>
-                <b>${(p.priceCents / 100).toFixed(2)}</b> / شهر
+      <div className="heroX">
+        <div className="container">
+          <h2 style={{margin:0}}>Pay Less When Share More</h2>
+          <div className="sub">Enjoy Familyplan Price through echtiraki</div>
+          <div className="tabs">
+            {CATS.map(c=>
+              <button key={c.key} className={`tab ${cat===c.key?'active':''}`} onClick={()=>setCat(c.key)}>{c.label}</button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="container grid">
+        {items.map(p=>(
+          <div key={p.slug} className="card">
+            <div className="top">
+              <img className="logo" src={p.cover} alt={p.name}/>
+              <div>
+                <div style={{fontWeight:700}}>{p.name}</div>
+                <div className="sub">{p.short}</div>
               </div>
-              <Link
-                href={`/products/${p.id}`}
-                style={{
-                  padding: "8px 12px",
-                  border: "1px solid #ddd",
-                  borderRadius: 8,
-                  display: "inline-block",
-                }}
-              >
-                تفاصيل
-              </Link>
             </div>
+            <div className="price">${(p.price_cents/100).toFixed(2)} <span style={{fontSize:14}}>{p.period_text}</span></div>
+            <div className="meta">Sold: {p.sold} · Stock: {p.stock}</div>
+            <Link href={`/products/${p.slug}`} className="btn" aria-disabled={p.stock<=0} onClick={e=>{ if(p.stock<=0){ e.preventDefault(); }}}>
+              {p.stock>0 ? "Join in" : "Out of stock"}
+            </Link>
           </div>
         ))}
-      </main>
+      </div>
     </>
   );
 }

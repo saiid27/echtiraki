@@ -1,26 +1,41 @@
 "use client";
 import Nav from "../../../components/Nav";
-import { products } from "../../../data/products";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const p = products.find(x => x.id === params.id);
+export default function ProductDetail(){
+  const { id } = useParams<{id:string}>();
   const router = useRouter();
-  if (!p) return <main style={{ padding: 24 }}>المنتج غير موجود.</main>;
+  const [p,setP] = useState<any>(null);
+
+  useEffect(()=>{ fetch(`/api/products/${id}`).then(r=>r.json()).then(setP); },[id]);
+  if(!p) return null;
+
+  const join = async()=>{
+    const phone = localStorage.getItem("phone");
+    if(!phone){ router.push("/login"); return; }
+    const r = await fetch("/api/orders",{ method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ phone, productSlug:p.slug })});
+    if(r.ok){ router.push("/subscriptions"); } else { alert("لا يمكن إنشاء الطلب (قد يكون المخزون صفر)."); }
+  };
 
   return (
     <>
       <Nav />
-      <main style={{ maxWidth: 800, margin: "32px auto", padding: 16 }}>
-        <h1>{p.name}</h1>
-        <img src={p.cover} alt={p.name} style={{ width: 140, height: 140, objectFit: "contain", background: "#f6f6f6", borderRadius: 8 }} />
-        <p style={{ marginTop: 12 }}>{p.description}</p>
-        <div style={{ marginTop: 12 }}><b>${(p.priceCents / 100).toFixed(2)}</b> / شهر</div>
-        <button onClick={() => router.push("/contact")}
-                style={{ marginTop: 12, padding: "10px 16px", border: "1px solid #0a7", borderRadius: 8, cursor: "pointer" }}>
-          اطلب الآن (تجريبي)
-        </button>
-      </main>
+      <div className="container" style={{padding:16}}>
+        <div className="card">
+          <div className="top">
+            <img className="logo" src={p.cover} alt={p.name}/>
+            <div>
+              <h2 style={{margin:"0 0 6px"}}>{p.name}</h2>
+              <div className="sub">{p.short}</div>
+            </div>
+          </div>
+          <p style={{marginTop:12}}>{p.description}</p>
+          <div className="price">${(p.price_cents/100).toFixed(2)} <span style={{fontSize:14}}>{p.period_text}</span></div>
+          <div className="meta">Sold: {p.sold} · Stock: {p.stock}</div>
+          <button className="btn" disabled={p.stock<=0} onClick={join}>{p.stock>0? "Join in":"Out of stock"}</button>
+        </div>
+      </div>
     </>
   );
 }
