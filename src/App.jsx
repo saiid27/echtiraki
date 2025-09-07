@@ -70,28 +70,56 @@ const LOCALES = {
 const PRODUCTS = [
   {
     id: "netflix_uhd",
-    name: "Netflix UHD",
-    duration: "30 يوم",
+    name: "Netflix 4K",
+    duration: "1 mois",
     price: 270,
     img: "/netflix.jpg", // ضع صورة في مجلد public
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
   },
   {
-    id: "spotify_premium",
-    name: "Spotify Premium",
-    duration: "30 يوم",
-    price: 3.49,
-    img: "/spotify.png",
-    keywords: ["سبوتيفاي", "Spotify", "Premium", "music"],
+    id: "netflix_uhd",
+    name: "Netflix 4K",
+    duration: "3 mois",
+    price: 500,
+    img: "/netflix.jpg", // ضع صورة في مجلد public
+    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
   },
   {
-    id: "iptv_m3u",
-    name: "IPTV M3U",
-    duration: "30 يوم",
-    price: 4.99,
-    img: "/Sourt echtiraki.jpg",
-    keywords: ["iptv", "M3U", "قنوات", "tv"],
+    id: "chat-gpt plus",
+    name: "chat-gpt plus",
+    duration: " 1 mois",
+    price: 350,
+    img: "/chatgpt.jpg",
+    keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
   },
+  {
+    id: "chat-gpt plus",
+    name: "chat-gpt plus",
+    duration: "3 mois",
+    price: 800,
+    img: "/chatgpt.jpg",
+    keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
+  },
+
+ {
+    id: "snap chat- plus",
+    name: "snap chat- plus",
+    duration: "3 mois",
+    price: 270,
+    img: "/snapchat.jpg",
+    keywords: ["سناب شات", "snap", "snap plus", "سناب"],
+  },
+
+   {
+    id: "snap chat- plus",
+    name: "snap chat- plus",
+    duration: "6 mois",
+    price: 500,
+    img: "/snapchat.jpg",
+    keywords: ["سناب شات", "snap", "snap plus", "سناب"],
+  },
+
+
 ];
 
 // ترجمة نص المنتج حسب اللغة (إن رغبت لاحقًا، يمكن وضع أسماء محلية لكل منتج)
