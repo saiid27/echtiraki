@@ -131,7 +131,7 @@ function CheckoutForm({ selected, onBack, t, lang }) {
     if (!selected) return "";
     const productName = getDisplayName(selected, lang);
     return [
-      "🛒 *طلب اشتراك جديد*",
+      "🛒 *فاتورة طلب اشتراك*",
       `• ${t.product_label}: ${productName}`,
       `• ${t.duration_label}: ${selected.duration}`,
       `• ${t.price_label}: ${Number(selected.price).toFixed(0)} ${t.price_unit}`,
