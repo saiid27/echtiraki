@@ -73,6 +73,7 @@ const PRODUCTS = [
     name: "Netflix UHD",
     duration: "30 يوم",
     price: 270,
+    img: "/netflix.jpg", // ضع صورة في مجلد public
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
   },
   {
@@ -80,6 +81,7 @@ const PRODUCTS = [
     name: "Spotify Premium",
     duration: "30 يوم",
     price: 3.49,
+    img: "/spotify.png",
     keywords: ["سبوتيفاي", "Spotify", "Premium", "music"],
   },
   {
@@ -87,6 +89,7 @@ const PRODUCTS = [
     name: "IPTV M3U",
     duration: "30 يوم",
     price: 4.99,
+    img: "/Sourt echtiraki.jpg",
     keywords: ["iptv", "M3U", "قنوات", "tv"],
   },
 ];
@@ -99,22 +102,24 @@ function getDisplayName(item, ) {
 }
 
 // البطاقة
-function ProductCard({ item, onSelect, t, lang }) {
+function ProductCard({ item, onSelect, t,  }) {
   return (
     <div className="card">
-      <div className="card-title">{getDisplayName(item, lang)}</div>
-      <div className="card-sub">
-        {t.duration}: {item.duration}
+      {item.img && <img src={item.img} alt={item.name} className="card-img" />}
+      <div className="card-body">
+        <div className="card-title">{item.name}</div>
+        <div className="card-sub">{item.duration}</div>
+        <div className="card-price">
+          {Number(item.price).toFixed(0)} {t.price_unit}
+        </div>
+        <button onClick={() => onSelect(item)} className="btn">
+          {t.choose}
+        </button>
       </div>
-      <div className="card-price">
-        {Number(item.price).toFixed(0)} {t.price_unit}
-      </div>
-      <button onClick={() => onSelect(item)} className="btn">
-        {t.choose}
-      </button>
     </div>
   );
 }
+
 
 const ADMIN_PHONE = import.meta.env.VITE_ADMIN_PHONE || "+22234605765";
 
