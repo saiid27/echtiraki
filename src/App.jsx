@@ -1,51 +1,148 @@
 // src/App.jsx
 import { useMemo, useState } from "react";
-import "./styles.css"; // أو بدّلها للاسم الصحيح عندك
+import "./styles.css";
 
+// --- إعداد اللغات البسيط (بدون مكتبات خارجية)
+const LOCALES = {
+  ar: {
+    brand: "اشتراكي",
+    subtitle: "اختر المنتج وأرسِل الطلب عبر واتساب.",
+    search_placeholder: "ابحث عن منتج…",
+    choose: "اختيار",
+    duration: "المدة",
+    price_unit: "MRU",
+    confirm_title: "تأكيد الطلب",
+    fullName: "الاسم الكامل",
+    whatsapp: "رقم الواتساب",
+    email: "البريد الإلكتروني (اختياري)",
+    notes: "ملاحظات",
+    agree: "أوافق على الشروط وسياسة الخصوصية",
+    back: "رجوع",
+    send: "إرسال الطلب",
+    hint: "سيتم فتح واتساب مع فاتورة جاهزة، اضغط إرسال",
+    product_label: "المنتج",
+    duration_label: "المدة",
+    price_label: "السعر",
+  },
+  fr: {
+    brand: "Echtiraki",
+    subtitle: "Choisissez le produit et envoyez la commande via WhatsApp.",
+    search_placeholder: "Rechercher un produit…",
+    choose: "Choisir",
+    duration: "Durée",
+    price_unit: "MRU",
+    confirm_title: "Confirmer la commande",
+    fullName: "Nom complet",
+    whatsapp: "Numéro WhatsApp",
+    email: "Email (optionnel)",
+    notes: "Notes",
+    agree: "J'accepte les conditions et la politique de confidentialité",
+    back: "Retour",
+    send: "Envoyer",
+    hint: "WhatsApp s’ouvrira avec une facture prête, appuyez sur Envoyer",
+    product_label: "Produit",
+    duration_label: "Durée",
+    price_label: "Prix",
+  },
+  en: {
+    brand: "Echtiraki",
+    subtitle: "Pick a product and send your order via WhatsApp.",
+    search_placeholder: "Search products…",
+    choose: "Choose",
+    duration: "Duration",
+    price_unit: "MRU",
+    confirm_title: "Confirm Order",
+    fullName: "Full name",
+    whatsapp: "WhatsApp number",
+    email: "Email (optional)",
+    notes: "Notes",
+    agree: "I agree to the Terms & Privacy Policy",
+    back: "Back",
+    send: "Send Order",
+    hint: "WhatsApp will open with a ready invoice, press Send",
+    product_label: "Product",
+    duration_label: "Duration",
+    price_label: "Price",
+  },
+};
 
-
-
-
-// بيانات المنتجات
+// بيانات المنتجات (أضفنا كلمات مفتاحية للبحث المتعدد اللغات)
 const PRODUCTS = [
-  { id: "netflix_uhd", name: "Netflix UHD", duration: "30 يوم", price: 6.99 },
-  { id: "spotify_premium", name: "Spotify Premium", duration: "30 يوم", price: 3.49 },
-  { id: "iptv_m3u", name: "IPTV M3U", duration: "30 يوم", price: 4.99 },
+  {
+    id: "netflix_uhd",
+    name: "Netflix UHD",
+    duration: "30 يوم",
+    price: 270,
+    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
+  },
+  {
+    id: "spotify_premium",
+    name: "Spotify Premium",
+    duration: "30 يوم",
+    price: 3.49,
+    keywords: ["سبوتيفاي", "Spotify", "Premium", "music"],
+  },
+  {
+    id: "iptv_m3u",
+    name: "IPTV M3U",
+    duration: "30 يوم",
+    price: 4.99,
+    keywords: ["iptv", "M3U", "قنوات", "tv"],
+  },
 ];
 
-// (بدل ProductCard.jsx)
-function ProductCard({ item, onSelect }) {
+// ترجمة نص المنتج حسب اللغة (إن رغبت لاحقًا، يمكن وضع أسماء محلية لكل منتج)
+function getDisplayName(item, ) {
+  // إذا أردت أسماء محلية، وسّع هنا:
+  // مثال: if (lang === 'fr' && item.id === 'netflix_uhd') return 'Netflix UHD';
+  return item.name;
+}
+
+// البطاقة
+function ProductCard({ item, onSelect, t, lang }) {
   return (
     <div className="card">
-      <div className="card-title">{item.name}</div>
-      <div className="card-sub">{item.duration}</div>
-      <div className="card-price">{item.price.toFixed(2)} $</div>
-      <button onClick={() => onSelect(item)} className="btn">اختيار</button>
+      <div className="card-title">{getDisplayName(item, lang)}</div>
+      <div className="card-sub">
+        {t.duration}: {item.duration}
+      </div>
+      <div className="card-price">
+        {Number(item.price).toFixed(0)} {t.price_unit}
+      </div>
+      <button onClick={() => onSelect(item)} className="btn">
+        {t.choose}
+      </button>
     </div>
   );
 }
 
-// (بدل CheckoutForm.jsx)
 const ADMIN_PHONE = import.meta.env.VITE_ADMIN_PHONE || "+22234605765";
-function CheckoutForm({ selected, onBack }) {
-  const [form, setForm] = useState({ fullName: "", whatsapp: "", email: "", notes: "" });
+
+function CheckoutForm({ selected, onBack, t, lang }) {
+  const [form, setForm] = useState({
+    fullName: "",
+    whatsapp: "",
+    email: "",
+    notes: "",
+  });
   const [agree, setAgree] = useState(true);
 
   const msg = useMemo(() => {
     if (!selected) return "";
+    const productName = getDisplayName(selected, lang);
     return [
       "🛒 *طلب اشتراك جديد*",
-      `• المنتج: ${selected.name}`,
-      `• المدة: ${selected.duration}`,
-      `• السعر: ${selected.price.toFixed(2)} $`,
+      `• ${t.product_label}: ${productName}`,
+      `• ${t.duration_label}: ${selected.duration}`,
+      `• ${t.price_label}: ${Number(selected.price).toFixed(0)} ${t.price_unit}`,
       "— — —",
-      `• الاسم: ${form.fullName || "-"}`,
-      `• واتساب العميل: ${form.whatsapp || "-"}`,
-      `• البريد: ${form.email || "-"}`,
-      `• ملاحظات: ${form.notes || "-"}`,
+      `• ${t.fullName}: ${form.fullName || "-"}`,
+      `• ${t.whatsapp}: ${form.whatsapp || "-"}`,
+      `• ${t.email}: ${form.email || "-"}`,
+      `• ${t.notes}: ${form.notes || "-"}`,
       `• وقت الإرسال: ${new Date().toLocaleString()}`,
     ].join("\n");
-  }, [selected, form]);
+  }, [selected, form, t, lang]);
 
   function openWhatsApp() {
     const enc = encodeURIComponent(msg);
@@ -64,66 +161,174 @@ function CheckoutForm({ selected, onBack }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (!selected) return;
-    if (!form.fullName || !form.whatsapp) return alert("رجاءً أدخل الاسم ورقم واتساب.");
+    if (!form.fullName || !form.whatsapp)
+      return alert("رجاءً أدخل الاسم ورقم واتساب.");
     if (!agree) return alert("رجاءً وافق على الشروط.");
     openWhatsApp();
   }
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h3>تأكيد الطلب: {selected?.name}</h3>
+      <h3>
+        {t.confirm_title}: {getDisplayName(selected, lang)}
+      </h3>
 
-      <label>الاسم الكامل
-        <input value={form.fullName} onChange={e=>setForm(f=>({...f, fullName:e.target.value}))} required/>
+      <label>
+        {t.fullName}
+        <input
+          value={form.fullName}
+          onChange={(e) =>
+            setForm((f) => ({ ...f, fullName: e.target.value }))
+          }
+          required
+        />
       </label>
 
-      <label>رقم واتساب (مع كود الدولة)
-        <input value={form.whatsapp} onChange={e=>setForm(f=>({...f, whatsapp:e.target.value}))} required/>
+      <label>
+        {t.whatsapp}
+        <input
+          value={form.whatsapp}
+          onChange={(e) =>
+            setForm((f) => ({ ...f, whatsapp: e.target.value }))
+          }
+          required
+        />
       </label>
 
-      <label>البريد الإلكتروني (اختياري)
-        <input type="email" value={form.email} onChange={e=>setForm(f=>({...f, email:e.target.value}))}/>
+      <label>
+        {t.email}
+        <input
+          type="email"
+          value={form.email}
+          onChange={(e) =>
+            setForm((f) => ({ ...f, email: e.target.value }))
+          }
+        />
       </label>
 
-      <label>ملاحظات
-        <textarea rows={3} value={form.notes} onChange={e=>setForm(f=>({...f, notes:e.target.value}))}/>
+      <label>
+        {t.notes}
+        <textarea
+          rows={3}
+          value={form.notes}
+          onChange={(e) =>
+            setForm((f) => ({ ...f, notes: e.target.value }))
+          }
+        />
       </label>
 
       <label className="agree">
-        <input type="checkbox" checked={agree} onChange={e=>setAgree(e.target.checked)} />
-        أوافق على الشروط وسياسة الخصوصية
+        <input
+          type="checkbox"
+          checked={agree}
+          onChange={(e) => setAgree(e.target.checked)}
+        />
+        {t.agree}
       </label>
 
       <div className="row">
-        <button type="button" className="btn ghost" onClick={onBack}>رجوع</button>
-        <button type="submit" className="btn">إرسال عبر واتساب</button>
+        <button type="button" className="btn ghost" onClick={onBack}>
+          {t.back}
+        </button>
+        <button type="submit" className="btn">
+          {t.send}
+        </button>
       </div>
 
-      <p className="hint">سيتم فتح واتساب مع رسالة جاهزة — اضغط “إرسال”.</p>
+      <p className="hint">{t.hint}</p>
     </form>
   );
 }
 
 export default function App() {
+  const [lang, setLang] = useState("ar"); // ar | fr | en
+  const t = LOCALES[lang];
+
+  const [search, setSearch] = useState("");
   const [selected, setSelected] = useState(null);
+
+  // فلترة المنتجات حسب البحث (الاسم المترجم + الكلمات المفتاحية)
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return PRODUCTS;
+    return PRODUCTS.filter((p) => {
+      const name = getDisplayName(p, lang).toLowerCase();
+      const keys = (p.keywords || []).join(" ").toLowerCase();
+      return name.includes(q) || keys.includes(q);
+    });
+  }, [search, lang]);
+
   return (
     <div className="container">
-      <header className="head">
-        <h1>اشتراكات رقمية</h1>
-        <p>اختر المنتج وارسِل الطلب عبر واتساب.</p>
+      {/* الهيدر الجديد */}
+      <header className="topbar">
+        <div className="brand">
+          <img
+            src="/Sourt echtiraki.jpg"
+            alt="logo"
+            className="brand-logo"
+            onError={(e) => {
+              // في حال لا يوجد صورة، نخفي الوسم
+              e.currentTarget.style.display = "none";
+            }}
+          />
+          <div className="brand-text">
+            <h1 className="brand-title">{t.brand}</h1>
+            <p className="brand-sub">{t.subtitle}</p>
+          </div>
+        </div>
+
+        <div className="topbar-actions">
+          <input
+            className="search-input"
+            placeholder={t.search_placeholder}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <select
+            className="lang-select"
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+            aria-label="Language"
+            title="Language"
+          >
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+          </select>
+        </div>
       </header>
 
+      {/* المحتوى */}
       {!selected ? (
         <div className="grid">
-          {PRODUCTS.map((p) => (
-            <ProductCard key={p.id} item={p} onSelect={setSelected} />
+          {filtered.map((p) => (
+            <ProductCard
+              key={p.id}
+              item={p}
+              onSelect={setSelected}
+              t={t}
+              lang={lang}
+            />
           ))}
+          {filtered.length === 0 && (
+            <div className="empty">لا توجد نتائج مطابقة لبحثك.</div>
+          )}
         </div>
       ) : (
-        <CheckoutForm selected={selected} onBack={() => setSelected(null)} />
+        <CheckoutForm
+          selected={selected}
+          onBack={() => setSelected(null)}
+          t={t}
+          lang={lang}
+        />
       )}
 
-      <footer className="foot">© {new Date().getFullYear()} متجرك</footer>
+      <footer className="foot">
+        echtiraki © {new Date().getFullYear()} | dev. med said
+        <p>mohameden moctar ellahi</p>
+      </footer>
     </div>
   );
 }

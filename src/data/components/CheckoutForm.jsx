@@ -18,7 +18,7 @@ export default function CheckoutForm({ selected, onBack }) {
       "🛒 *طلب اشتراك جديد*",
       `• المنتج: ${selected.name}`,
       `• المدة: ${selected.duration}`,
-      `• السعر: ${selected.price.toFixed(2)} $`,
+      `• السعر: ${selected.price} $`,
       "— — —",
       `• الاسم: ${form.fullName || "-"}`,
       `• واتساب العميل: ${form.whatsapp || "-"}`,
