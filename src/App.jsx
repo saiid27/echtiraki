@@ -362,12 +362,18 @@ export default function App() {
 <WhatsAppButton />
 
       <footer className="foot">
-        <img src="/Sourt echtiraki.jpg" className="pay" width="300px" />
+      
         <h3>
         echtiraki © {new Date().getFullYear()} | dev. med said
-        <p>mohameden moctar ellahi</p>
+        mohameden moctar ellahi
         </h3>
-        
+        <p>     </p>
+        <h2> 
+           payement:
+           طرق الدفع
+           
+           </h2>
+          <img src="/bank.jpg" className="pay" width="300px"  height="100%"/>
       </footer>
       
     </div>
@@ -385,5 +391,6 @@ function WhatsAppButton() {
     
   );
 }
+
 
 }
