@@ -151,9 +151,9 @@ const PRODUCTS = [
  {
     id: "adobe",
     name: "adobe برامج فوتوشوب ",
-    duration: "1 mois",
+    duration:"infinie-مدى الحياة",
     
-    price: 100,
+    price: 1000,
     img: "/adobe.jpg",
     keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
   },
@@ -339,7 +339,7 @@ export default function App() {
       <header className="topbar">
         <div className="brand">
           <img
-            src="/Sourt echtiraki.jpg"
+            src="/LOG.jpg"
             alt="logo"
             className="brand-logo"
             onError={(e) => {
@@ -412,12 +412,12 @@ export default function App() {
         mohameden moctar ellahi
         </h3>
         <p>     </p>
-        <h2> 
-           payement:
+        <h4> 
+           Modes de paiement:
            طرق الدفع
            
-           </h2>
-          <img src="/bank.jpg" className="pay" width="300px"  height="100%"/>
+           </h4>
+          <img src="/bank.jpg" className="pay" width="200px"  height="50%"/>
       </footer>
       
     </div>
