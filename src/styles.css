@@ -174,3 +174,75 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+
+
+
+
+/* زر واتساب ثابت */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+  z-index: 9999;
+  position: fixed;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+
+/* أيقونة واتساب */
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* يجعل الأيقونة بيضاء */
+}
+
+/* التولتيب */
+.whatsapp-tooltip {
+  position: absolute;
+  right: 70px; /* مسافة يسار الزر */
+  bottom: 50%;
+  transform: translateY(50%);
+  background: #111827;
+  color: #f1f5f9;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+/* سهم صغير للتولتيب */
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #111827;
+}
+
+/* إظهار التولتيب عند المرور */
+.whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateY(50%) translateX(-4px);
+}

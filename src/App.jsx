@@ -292,6 +292,7 @@ export default function App() {
   }, [search, lang]);
 
   return (
+    
     <div className="container">
       {/* الهيدر الجديد */}
       <header className="topbar">
@@ -356,12 +357,33 @@ export default function App() {
           t={t}
           lang={lang}
         />
-      )}
+        
+      ) }
+<WhatsAppButton />
 
       <footer className="foot">
+        <img src="/Sourt echtiraki.jpg" className="pay" width="300px" />
+        <h3>
         echtiraki © {new Date().getFullYear()} | dev. med said
         <p>mohameden moctar ellahi</p>
+        </h3>
+        
       </footer>
+      
     </div>
+    
   );
+  
+function WhatsAppButton() {
+  const url = `https://wa.me/${ADMIN_PHONE}`;
+
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
+      <img src="/whatsapp.svg" alt="WhatsApp" className="whatsapp-icon" />
+      <span className="whatsapp-tooltip">تواصل معنا على واتساب</span>
+    </a>
+  );
+}
+
+
 }
