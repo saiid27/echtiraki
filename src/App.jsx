@@ -73,7 +73,7 @@ const PRODUCTS = [
     name: "Netflix 4K",
     duration: "1 mois",
     price: 270,
-    img: "/netflix.jpg", // ضع صورة في مجلد public
+    img: "/ntflx.jpg", // ضع صورة في مجلد public
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
   },
   {
@@ -81,7 +81,7 @@ const PRODUCTS = [
     name: "Netflix 4K",
     duration: "3 mois",
     price: 500,
-    img: "/netflix.jpg", // ضع صورة في مجلد public
+    img: "/ntflx.jpg", // ضع صورة في مجلد public
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
   },
   {
@@ -89,7 +89,7 @@ const PRODUCTS = [
     name: "chat-gpt plus",
     duration: " 1 mois",
     price: 350,
-    img: "/chatgpt.jpg",
+    img: "/gpt.jpg",
     keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
   },
   {
@@ -97,7 +97,7 @@ const PRODUCTS = [
     name: "chat-gpt plus",
     duration: "3 mois",
     price: 800,
-    img: "/chatgpt.jpg",
+    img: "/gpt.jpg",
     keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
   },
 
@@ -124,7 +124,7 @@ const PRODUCTS = [
     name: "canva pro",
     duration: "infinie-مدى الحياة",
     price: 300,
-    img: "/snapcht.jpg",
+    img: "/canva.jpg",
     keywords: [" كانفا", "كانفا برو", "canva ", "canva pro"],
   },
 
@@ -134,7 +134,7 @@ const PRODUCTS = [
     name: " capcut pro",
     duration: "1 mois ",
     price: 520,
-    img: "/snapcht.jpg",
+    img: "/capcut.jpg",
     keywords: [" كابكات", "كابكات برو", "capcut ", "capcut pro"],
   },
 
@@ -143,7 +143,7 @@ const PRODUCTS = [
     name: "meta verified-توثيق حساب فيسبوك ",
     duration: "1 mois",
     price: 800,
-    img: "/snapcht.jpg",
+    img: "/meta.jpg",
     keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
   },
 
@@ -154,7 +154,7 @@ const PRODUCTS = [
     duration: "1 mois",
     
     price: 100,
-    img: "/phottoshop.jpg",
+    img: "/adobe.jpg",
     keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
   },
 
