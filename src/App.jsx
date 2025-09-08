@@ -347,10 +347,7 @@ export default function App() {
               e.currentTarget.style.display = "none";
             }}
           />
-          <div className="brand-text">
-            <h1 className="brand-title">{t.brand}</h1>
-            <p className="brand-sub">{t.subtitle}</p>
-          </div>
+       
         </div>
 
         <div className="topbar-actions">
