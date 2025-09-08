@@ -379,11 +379,11 @@ function WhatsAppButton() {
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
-      <img src="/whatsapp.svg" alt="WhatsApp" className="whatsapp-icon" />
-      <span className="whatsapp-tooltip">تواصل معنا على واتساب</span>
+       <span className="whatsapp-tooltip">تواصل معنا على واتساب</span>
+      💬
     </a>
+    
   );
 }
-
 
 }
