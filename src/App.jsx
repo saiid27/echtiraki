@@ -119,6 +119,46 @@ const PRODUCTS = [
     keywords: ["سناب شات", "snap", "snap plus", "سناب"],
   },
 
+ {
+    id: "canva-pro",
+    name: "canva pro",
+    duration: "infinie-مدى الحياة",
+    price: 300,
+    img: "/snapcht.jpg",
+    keywords: [" كانفا", "كانفا برو", "canva ", "canva pro"],
+  },
+
+
+ {
+    id: "capcut pro",
+    name: " capcut pro",
+    duration: "1 mois ",
+    price: 520,
+    img: "/snapcht.jpg",
+    keywords: [" كابكات", "كابكات برو", "capcut ", "capcut pro"],
+  },
+
+ {
+    id: "meta verified",
+    name: "meta verified-توثيق حساب فيسبوك ",
+    duration: "1 mois",
+    price: 800,
+    img: "/snapcht.jpg",
+    keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
+  },
+
+  
+ {
+    id: "adobe",
+    name: "adobe برامج فوتوشوب ",
+    duration: "1 mois",
+    
+    price: 100,
+    img: "/phottoshop.jpg",
+    keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
+  },
+
+
 
 ];
 
@@ -294,6 +334,7 @@ export default function App() {
   return (
     
     <div className="container">
+      
       {/* الهيدر الجديد */}
       <header className="topbar">
         <div className="brand">
@@ -359,6 +400,9 @@ export default function App() {
         />
         
       ) }
+      <BottomBar />
+
+
 <WhatsAppButton />
 
       <footer className="foot">
@@ -389,6 +433,20 @@ function WhatsAppButton() {
       💬
     </a>
     
+  );
+}
+
+
+
+
+function BottomBar() {
+  return (
+    <nav className="bottombar">
+      <a href="#about">من نحن</a>
+      <a href="#privacy">سياسة الخصوصية</a>
+      <a href="#terms">الشروط</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
   );
 }
 

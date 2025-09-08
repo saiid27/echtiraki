@@ -246,3 +246,71 @@ body {
   opacity: 1;
   transform: translateY(50%) translateX(-4px);
 }
+
+
+
+
+/* مساحة سفلية للمحتوى حتى لا تغطيه البوتوم بار */
+.container {
+  padding-bottom: 96px; /* يضمن عدم التصادم مع الشريط */
+}
+
+/* ===== شريط سفلي ثابت ===== */
+.bottombar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 4vw, 28px);
+  padding: 10px 14px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); /* لأجهزة iPhone */
+  background: rgba(15,23,42,.95);         /* Slate-900 شبه شفاف */
+  border-top: 1px solid rgba(31,42,74,.6);
+  backdrop-filter: blur(8px);
+}
+
+/* الروابط داخل الشريط */
+.bottombar a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color .2s ease, background .2s ease;
+}
+.bottombar a:hover {
+  color: #38bdf8;
+  background: rgba(56,189,248,.08);
+}
+
+/* في الشاشات الصغيرة نسمح بسطرين */
+@media (max-width: 480px) {
+  .bottombar {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  .bottombar a { font-size: 13px; padding: 6px 8px; }
+}
+
+/* نقل زر واتساب قليلاً للأعلى حتى لا يغطيه الشريط */
+.whatsapp-btn {
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px)); /* كان 20px، رفعناه فوق الشريط */
+  right: 20px;
+}
+
+/* لو عندك التولتيب، نخليه يفتح فوق الزر بدل الجنب */
+.whatsapp-tooltip {
+  right: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(50%);
+}
+.whatsapp-tooltip::after {
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-color: #111827 transparent transparent transparent;
+}
