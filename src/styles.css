@@ -38,7 +38,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 6px 10px;         /* ← قلّل البادينغ */
+  padding: 6px 25px;         /* ← قلّل البادينغ */
   margin: 8px 0 12px;        /* ← قلّل المسافة قبل وبعد */
   background: rgba(15,23,42,.9);
   border: 1px solid rgba(31,42,74,.6);
@@ -65,11 +65,13 @@ body {
 }
 .search-input {
   flex: 1; min-width: 0;
-  padding: 8px 10px; font-size: 14px;
+  padding: 9px 9px; font-size: 12px;
   border: 1px solid #24304f;
   border-radius: 8px;
   background: var(--surface);
   color: var(--text);
+  width: 5px;
+  
 }
 .lang-select {
   padding: 8px 10px; font-size: 14px;
