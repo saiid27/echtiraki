@@ -9,27 +9,33 @@
   --brand:#5570F1;
   --surface:#0b1329;
   --ring: rgba(85,112,241,.25);
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 
+html, body { height: 100%; }
 body { 
   margin: 0; 
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; 
   background: var(--bg); 
   color: var(--text);
-  font-size: 15px; /* ← حجم خط أساسي أوضح */
+  font-size: 15px;
   line-height: 1.6;
-  background-image: radial-gradient(80rem 80rem at 120% -10%, rgba(85,112,241,.08), transparent),
-                    radial-gradient(60rem 60rem at -10% 120%, rgba(56,189,248,.06), transparent);
+  background-image:
+    radial-gradient(80rem 80rem at 120% -10%, rgba(85,112,241,.08), transparent),
+    radial-gradient(60rem 60rem at -10% 120%, rgba(56,189,248,.06), transparent);
 }
 
+a { color: inherit; }
+
+/* ====== الحاوية العامة ====== */
 .container { 
   max-width: 960px; 
   margin: 0 auto; 
   padding: 16px;
+  padding-bottom: 96px; /* يضمن عدم التصادم مع الشريط السفلي */
 }
 
 /* ====== الهيدر ====== */
-/* الهيدر */
 .topbar {
   position: sticky;
   top: 0;
@@ -38,27 +44,22 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 6px 25px;         /* ← قلّل البادينغ */
-  margin: 8px 0 12px;        /* ← قلّل المسافة قبل وبعد */
+  padding: 6px 25px;
+  margin: 8px 0 12px;
   background: rgba(15,23,42,.9);
   border: 1px solid rgba(31,42,74,.6);
   border-radius: 8px;
   backdrop-filter: blur(6px);
 }
 
-.brand {
-  display: flex; align-items: center; gap: 8px;
-}
+.brand { display: flex; align-items: center; gap: 8px; }
 .brand-logo {
   width: 120px; height: 120px;
   border-radius: 8px; object-fit: cover;
 }
-.brand-title {
-  margin: 0; font-size: 18px; font-weight: 600;
-}
-.brand-sub {
-  margin: 0; font-size: 12px; opacity:.8;
-}
+.brand-title { margin: 0; font-size: 18px; font-weight: 600; }
+.brand-sub { margin: 0; font-size: 12px; opacity:.8; }
+
 .topbar-actions {
   display: flex; align-items: center; gap: 8px;
   max-width: 420px; width: 100%;
@@ -70,8 +71,6 @@ body {
   border-radius: 8px;
   background: var(--surface);
   color: var(--text);
-  width: 5px;
-  
 }
 .lang-select {
   padding: 8px 10px; font-size: 14px;
@@ -99,6 +98,21 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
+
+.card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #111827; /* خلفية غامقة لو الصورة صغيرة */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .card-title { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
 .card-sub { opacity: .85; font-size: 14px; margin-bottom: 10px; }
 .card-price { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
@@ -107,12 +121,17 @@ body {
   border:0; padding: 10px 14px; border-radius: 8px;
   cursor: pointer; background: var(--brand); color:#fff;
   font-size: 14px; font-weight: 500;
-  transition: transform .15s ease, box-shadow .2s ease;
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
 }
 .btn:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(85,112,241,.35); }
+.btn:disabled { opacity:.6; cursor: not-allowed; }
 .btn.ghost {
   background: transparent; border:1px solid #334155; color:#e2e8f0;
 }
+
+/* صف أزرار عام */
+.row { display:flex; gap:10px; justify-content: flex-end; margin-top: 10px; }
+.row .btn { flex:1; }
 
 /* ====== النماذج ====== */
 .form {
@@ -133,11 +152,8 @@ body {
   box-shadow: 0 0 0 3px var(--ring);
   outline: none;
 }
-.row { display:flex; gap:10px; justify-content: flex-end; margin-top: 10px; }
-.row .btn { flex:1; }
 .agree { display:flex; align-items:center; gap:8px; font-size: 13px; }
 .hint { font-size: 14px; color: #38bdf8; margin-top: 10px; }
-.foot { text-align:center; opacity:.7; margin-top: 32px; font-size: 12px; }
 
 /* ====== حالات إضافية ====== */
 .empty {
@@ -150,77 +166,37 @@ body {
   font-size: 14px;
 }
 
-/* ====== تجاوب الموبايل ====== */
-/* موبايل عادي: خليها 2 كارد */
-@media (max-width: 520px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .brand-sub { display: none; } /* نخفي النص الثانوي لتوفير مساحة */
-  .row { flex-direction: column; }
-  .row .btn { width: 100%; }
-}
+/* ====== الفوتر ====== */
+.foot { text-align:center; opacity:.8; margin-top: 32px; font-size: 12px; }
+.pay { display:inline-block; margin-top: 8px; border-radius: 8px; }
 
-/* موبايل صغير جدًا (مثل iPhone SE) */
-@media (max-width: 360px) {
-  .grid { grid-template-columns: 1fr; }
-}
-/* صورة المنتج داخل البطاقة */
-.card-img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  background: #111827; /* خلفية غامقة لو الصورة صغيرة */
-}
-
-/* محتوى البطاقة */
-.card-body {
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-
-
-/* زر واتساب ثابت */
+/* ====== زر واتساب العائم ====== */
 .whatsapp-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px)); /* فوق الشريط السفلي */
   right: 20px;
   background: #25d366;
   width: 56px;
   height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
   box-shadow: 0 4px 14px rgba(0,0,0,.3);
   cursor: pointer;
   text-decoration: none;
   transition: transform .2s ease, box-shadow .2s ease;
   z-index: 9999;
-  position: fixed;
 }
-
 .whatsapp-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
 
-/* أيقونة واتساب */
-.whatsapp-icon {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1); /* يجعل الأيقونة بيضاء */
-}
-
-/* التولتيب */
+/* التولتيب لزر واتساب */
 .whatsapp-tooltip {
   position: absolute;
-  right: 70px; /* مسافة يسار الزر */
-  bottom: 50%;
-  transform: translateY(50%);
+  right: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(50%);
   background: #111827;
   color: #f1f5f9;
   font-size: 13px;
@@ -232,51 +208,33 @@ body {
   pointer-events: none;
   transition: opacity .2s ease, transform .2s ease;
 }
-
-/* سهم صغير للتولتيب */
 .whatsapp-tooltip::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
   border-width: 6px;
   border-style: solid;
-  border-color: transparent transparent transparent #111827;
+  border-color: #111827 transparent transparent transparent;
 }
-
-/* إظهار التولتيب عند المرور */
 .whatsapp-btn:hover .whatsapp-tooltip {
   opacity: 1;
-  transform: translateY(50%) translateX(-4px);
+  transform: translateX(50%) translateY(-2px);
 }
 
-
-
-
-/* مساحة سفلية للمحتوى حتى لا تغطيه البوتوم بار */
-.container {
-  padding-bottom: 96px; /* يضمن عدم التصادم مع الشريط */
-}
-
-/* ===== شريط سفلي ثابت ===== */
+/* ====== الشريط السفلي الثابت ====== */
 .bottombar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: fixed; left: 0; right: 0; bottom: 0;
   z-index: 9998;
-  display: flex;
-  justify-content: center;
+  display: flex; justify-content: center;
   gap: clamp(12px, 4vw, 28px);
   padding: 10px 14px;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); /* لأجهزة iPhone */
-  background: rgba(15,23,42,.95);         /* Slate-900 شبه شفاف */
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(15,23,42,.95);
   border-top: 1px solid rgba(31,42,74,.6);
   backdrop-filter: blur(8px);
 }
-
-/* الروابط داخل الشريط */
 .bottombar a {
   color: #e2e8f0;
   text-decoration: none;
@@ -291,30 +249,184 @@ body {
   background: rgba(56,189,248,.08);
 }
 
-/* في الشاشات الصغيرة نسمح بسطرين */
+/* ====== نافذة تفاصيل المنتج (Modal + Tabs) ====== */
+.modal-overlay{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  display: grid; place-items: center;
+  z-index: 10000;
+  padding: 16px;
+}
+
+.modal{
+  width: min(520px, 100%);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+  position: relative;
+  border: 1px solid var(--line);
+}
+
+.modal-close{
+  position: absolute; top: 8px; inset-inline-end: 8px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: none; background: transparent; color: inherit;
+  font-size: 22px; cursor: pointer;
+}
+
+.modal-img{
+  width: 100%; height: 180px; object-fit: cover;
+  border-radius: 12px; margin-bottom: 12px;
+  background: #0b1329;
+}
+
+.modal-title{
+  margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 700;
+}
+
+.modal-meta{
+  display: grid; gap: 4px; margin-bottom: 10px;
+  font-size: .95rem;
+}
+
+.modal-desc{
+  background: #101733;
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 10px; border-radius: 10px; margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* تبويبات */
+.tabs{
+  display:flex; gap:8px; margin:8px 0 12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:6px;
+}
+.tab-btn{
+  background:transparent; border:1px solid rgba(255,255,255,.15);
+  padding:6px 10px; border-radius:8px; cursor:pointer; font-weight:600;
+  color: #e2e8f0;
+}
+.tab-btn.active{
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* محتوى تبويبات */
+.howto-list{ padding-inline-start: 18px; line-height: 1.7; }
+.modal-links{ padding-inline-start: 18px; }
+.modal-links a { color:#93c5fd; }
+.modal-links a:hover { text-decoration: underline; }
+
+/* فيديو 16:9 مرن */
+.video-wrap{
+  position: relative; width: 100%; padding-top: 56.25%;
+  border-radius: 12px; overflow: hidden; background: #000;
+  margin-bottom: 8px;
+}
+.video-wrap iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+
+/* ====== تجاوب الموبايل ====== */
+@media (max-width: 520px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .brand-sub { display: none; } /* نخفي النص الثانوي لتوفير مساحة */
+  .row { flex-direction: column; }
+  .row .btn { width: 100%; }
+  .brand-logo { width: 72px; height: 72px; }
+}
+
 @media (max-width: 480px) {
-  .bottombar {
-    flex-wrap: wrap;
-    gap: 10px 14px;
-  }
+  .bottombar { flex-wrap: wrap; gap: 10px 14px; }
   .bottombar a { font-size: 13px; padding: 6px 8px; }
 }
 
-/* نقل زر واتساب قليلاً للأعلى حتى لا يغطيه الشريط */
-.whatsapp-btn {
-  bottom: calc(84px + env(safe-area-inset-bottom, 0px)); /* كان 20px، رفعناه فوق الشريط */
-  right: 20px;
+@media (max-width: 360px) {
+  .grid { grid-template-columns: 1fr; }
 }
 
-/* لو عندك التولتيب، نخليه يفتح فوق الزر بدل الجنب */
-.whatsapp-tooltip {
-  right: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(50%);
+
+/* === وضع فائق الانضغاط للهواتف الصغيرة === */
+@media (max-width: 520px) {
+  html { font-size: 14px; }
+  .brand-logo { width: 72px; height: 72px; }
 }
-.whatsapp-tooltip::after {
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
-  border-color: #111827 transparent transparent transparent;
+
+/* شاشات ≤ 400px: تصغير شامل */
+@media (max-width: 400px) {
+  html { font-size: 13px; }
+
+  .container { padding: 12px; padding-bottom: 80px; }
+
+  .topbar { padding: 6px 12px; margin: 6px 0 10px; }
+  .brand-logo { width: 60px; height: 60px; }
+  .topbar-actions { gap: 8px; }
+  .search-input { padding: 8px; font-size: 11px; }
+  .lang-select { padding: 6px 8px; font-size: 12px; }
+
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .card { padding: 12px; border-radius: 10px; }
+  .card-img { height: 96px; border-radius: 8px; }
+  .card-title { font-size: 14px; }
+  .card-sub { font-size: 12px; }
+  .card-price { font-size: 15px; }
+
+  .btn { padding: 8px 10px; font-size: 13px; }
+  .row { gap: 8px; }
+
+  .form { padding: 12px; }
+  .form label { margin: 8px 0; font-size: 13px; }
+  .form input, .form textarea { padding: 8px; font-size: 13px; }
+
+  .foot { font-size: 11px; }
+
+  .bottombar { padding: 8px 10px; gap: 10px; }
+  .bottombar a { font-size: 12px; padding: 5px 8px; }
+
+  .whatsapp-btn {
+    width: 48px; height: 48px;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+  }
+  .whatsapp-tooltip { font-size: 12px; padding: 5px 8px; }
+
+  /* نافذة التفاصيل (Modal + Tabs) */
+  .modal { padding: 12px; border-radius: 12px; }
+  .modal-img { height: 140px; border-radius: 10px; }
+  .modal-title { font-size: 1.05rem; }
+  .modal-meta { font-size: .9rem; }
+  .tabs { gap: 6px; margin: 6px 0 10px; }
+  .tab-btn { padding: 5px 8px; font-size: 12px; border-radius: 7px; }
+  .modal-desc { font-size: 13px; }
+}
+
+/* شاشات ≤ 340px: أقصى تصغير */
+@media (max-width: 340px) {
+  html { font-size: 12px; }
+
+  .grid { grid-template-columns: 1fr; gap: 10px; }
+
+  .brand-logo { width: 52px; height: 52px; }
+  .topbar-actions { gap: 6px; }
+  .search-input { padding: 7px; font-size: 10.5px; }
+  .lang-select { padding: 5px 6px; font-size: 11px; }
+
+  .card-img { height: 88px; }
+  .btn { padding: 7px 9px; font-size: 12px; }
+
+  .bottombar { padding: 7px 8px; }
+  .bottombar a { font-size: 11px; padding: 4px 6px; }
+
+  .whatsapp-btn {
+    width: 44px; height: 44px;
+    bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    right: 12px;
+  }
+
+  .modal-img { height: 120px; }
+  .tab-btn { font-size: 11px; padding: 4px 7px; }
 }
