@@ -123,7 +123,7 @@ const PRODUCTS = [
     id: "canva-pro",
     name: "canva pro",
     duration: "infinie-مدى الحياة",
-    price: 300,
+    price: 200,
     img: "/canva.jpg",
     keywords: [" كانفا", "كانفا برو", "canva ", "canva pro"],
   },
@@ -442,8 +442,8 @@ function BottomBar() {
     <nav className="bottombar">
       <a href="https://echtiraki.blogspot.com/p/about.html">من نحن</a>
       <a href="#privacy">سياسة الخصوصية</a>
-      <a href="#terms">الشروط</a>
-      <a href="#contact">اتصل بنا</a>
+      <a href="#terms">كيفية الشراء</a>
+      <a href="https://echtiraki.blogspot.com/p/div-transformtranslatey0-opacity1.html">اتصل بنا</a>
     </nav>
   );
 }
