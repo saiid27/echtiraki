@@ -183,6 +183,7 @@ function ProductCard({ item, onSelect, t,  }) {
         <button onClick={() => onSelect(item)} className="btn">
           {t.choose}
         </button>
+       
       </div>
     </div>
   );
@@ -439,7 +440,7 @@ function WhatsAppButton() {
 function BottomBar() {
   return (
     <nav className="bottombar">
-      <a href="https://www.echtiraki.site/p/about.html">من نحن</a>
+      <a href="https://echtiraki.blogspot.com/p/about.html">من نحن</a>
       <a href="#privacy">سياسة الخصوصية</a>
       <a href="#terms">الشروط</a>
       <a href="#contact">اتصل بنا</a>
