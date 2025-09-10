@@ -353,7 +353,91 @@ ${message.trim()}`;
 }
 .contact-page .toast.show > div{ transform:translateY(0); opacity:1 }
 .contact-page .req{color:#ff8080}
-      `}</style>
+
+
+/* === وضع مضغوط للهواتف === */
+@media (max-width: 520px) {
+  .contact-page { padding: 14px; }
+  .contact-page .grid { padding: 14px; gap: 14px; }
+  .contact-page .header { padding: 18px 16px; }
+  .contact-page .title h1 { font-size: 1.15rem; }
+  .contact-page .title p { font-size: .88rem; }
+
+  .contact-page .panel { padding: 12px; border-radius: 10px; }
+  .contact-page .row { gap: 10px; }
+  .contact-page label { margin: 6px 2px 4px; font-size: .92rem; }
+  .contact-page input,
+  .contact-page textarea,
+  .contact-page select {
+    padding: 10px 12px; border-radius: 10px; font-size: .92rem;
+  }
+  .contact-page textarea { min-height: 120px; }
+  .contact-page .btn { padding: 10px 12px; border-radius: 10px; font-size: .92rem; }
+  .contact-page .btn.ghost { padding: 10px 12px; }
+  .contact-page .ico { width: 30px; height: 30px; border-radius: 8px; font-size: .95rem; }
+  .contact-page .item { padding: 10px; border-radius: 10px; }
+  .contact-page .small { font-size: .86rem; }
+  .contact-page .hint { font-size: .86rem; }
+  .contact-page .logo { width: 40px; height: 40px; border-radius: 12px; }
+  .contact-page .toast > div { padding: 10px 12px; font-size: .92rem; }
+}
+
+@media (max-width: 420px) {
+  .contact-page { padding: 10px; }
+  .contact-page .wrap { max-width: 100%; }
+  .contact-page .grid { padding: 10px; gap: 10px; }
+  .contact-page .header { padding: 14px 12px; gap: 10px; }
+  .contact-page .title h1 { font-size: 1rem; }
+  .contact-page .title p { font-size: .8rem; }
+
+  .contact-page .panel { padding: 10px; border-radius: 9px; }
+  .contact-page .row { grid-template-columns: 1fr; gap: 8px; } /* عمود واحد */
+  .contact-page label { margin: 4px 2px 3px; font-size: .88rem; }
+  .contact-page input,
+  .contact-page textarea,
+  .contact-page select {
+    padding: 8px 10px; border-radius: 8px; font-size: .88rem;
+  }
+  .contact-page textarea { min-height: 105px; }
+  .contact-page .actions { gap: 8px; }
+  .contact-page .btn { padding: 8px 10px; border-radius: 8px; font-size: .88rem; }
+  .contact-page .btn.ghost { padding: 8px 10px; }
+  .contact-page .ico { width: 26px; height: 26px; border-radius: 6px; font-size: .85rem; }
+  .contact-page .item { padding: 8px; border-radius: 8px; }
+  .contact-page .logo { width: 34px; height: 34px; border-radius: 10px; }
+  .contact-page .toast > div { padding: 8px 10px; font-size: .88rem; }
+}
+
+@media (max-width: 340px) {
+  .contact-page { padding: 8px; }
+  .contact-page .grid { padding: 8px; gap: 8px; }
+  .contact-page .header { padding: 12px 10px; }
+  .contact-page .title h1 { font-size: .95rem; }
+  .contact-page .title p { font-size: .76rem; }
+
+  .contact-page .panel { padding: 8px; border-radius: 8px; }
+  .contact-page label { font-size: .84rem; }
+  .contact-page input,
+  .contact-page textarea,
+  .contact-page select {
+    padding: 7px 9px; border-radius: 7px; font-size: .84rem;
+  }
+  .contact-page textarea { min-height: 96px; }
+  .contact-page .btn { padding: 7px 9px; border-radius: 7px; font-size: .84rem; }
+  .contact-page .ico { width: 24px; height: 24px; border-radius: 6px; font-size: .8rem; }
+  .contact-page .item { padding: 7px; border-radius: 7px; }
+  .contact-page .logo { width: 30px; height: 30px; border-radius: 9px; }
+  .contact-page .toast > div { padding: 7px 9px; font-size: .84rem; }
+}
+
+
+
+      `}
+      
+      
+      
+      
+      </style>
     </div>
   );
 }
