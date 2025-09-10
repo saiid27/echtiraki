@@ -199,7 +199,7 @@ export default function Lookup() {
 
   return (
     <article className="page">
-      <h1> طلبك</h1>
+      <h1> منتجك</h1>
       <p style={{ opacity: 0.8, marginTop: -6 }}>
         أدخل اسمك والرمز التعريفي  لعرض منتجك .
       </p>
