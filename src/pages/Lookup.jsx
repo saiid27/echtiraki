@@ -46,6 +46,7 @@ export default function Lookup() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [copiedKey, setCopiedKey] = useState(""); // لعرض "نُسِخ ✓" لكل زر على حدة
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -75,8 +76,8 @@ export default function Lookup() {
         setResult({
           code: val(0),
           name: val(1),
-          product: val(2),
-          duration: val(3),
+          product: val(2),   // تُعرض لديك كحقل "الإيميل"
+          duration: val(3),  // تُعرض لديك كحقل "الكود"
           price: val(4),
           status: val(5),
           notes: val(6),
@@ -89,35 +90,43 @@ export default function Lookup() {
     }
   }
 
-  /** نسخ كل التفاصيل للحافظة */
-  async function handleCopy() {
+  /** نسخ التفاصيل كاملة للحافظة */
+  async function handleCopyAll() {
     if (!result) return;
     const text = [
       "تفاصيل الطلب:",
       `الاسم: ${result.name ?? "-"}`,
-      `الكود: ${code}`,
-      `المنتج: ${result.product ?? "-"}`,
-      `المدة: ${result.duration ?? "-"}`,
+      `الرمز التعريفي: ${code}`,
+      `الإيميل: ${result.product ?? "-"}`,
+      `الكود: ${result.duration ?? "-"}`,
       `السعر: ${result.price ?? "-"} MRU`,
       result.status ? `الحالة: ${result.status}` : "",
       result.notes ? `ملاحظات: ${result.notes}` : "",
       `تاريخ: ${new Date().toLocaleString()}`
     ].filter(Boolean).join("\n");
 
+    await copyToClipboard(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  /** نسخ قيمة مفردة (مع مؤشر زر معين) */
+  async function handleCopyValue(value, key) {
+    await copyToClipboard(String(value ?? ""));
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(""), 1200);
+  }
+
+  async function copyToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
     } catch {
-      // fallback
       const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
       ta.select();
       document.execCommand("copy");
       document.body.removeChild(ta);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
     }
   }
 
@@ -166,9 +175,9 @@ export default function Lookup() {
 
     <div class="grid">
       <div class="label">الاسم</div><div class="val">${safe(result.name)}</div>
-      <div class="label">الكود</div><div class="val">${safe(code)}</div>
-      <div class="label">المنتج</div><div class="val">${safe(result.product)}</div>
-      <div class="label">المدة</div><div class="val">${safe(result.duration)}</div>
+      <div class="label">الرمز التعريفي</div><div class="val">${safe(code)}</div>
+      <div class="label">الإيميل</div><div class="val">${safe(result.product)}</div>
+      <div class="label">الكود</div><div class="val">${safe(result.duration)}</div>
       <div class="label">السعر</div><div class="val">${safe(result.price)} MRU</div>
       ${ result.status ? `<div class="label">الحالة</div><div class="val">${safe(result.status)}</div>` : "" }
       ${ result.notes ? `<div class="label">ملاحظات</div><div class="val">${safe(result.notes)}</div>` : "" }
@@ -186,7 +195,6 @@ export default function Lookup() {
       w.document.open();
       w.document.write(html);
       w.document.close();
-      // نؤخر الطباعة قليلًا لضمان تحميل الصفحة
       setTimeout(() => w.print(), 400);
     }
   }
@@ -196,6 +204,27 @@ export default function Lookup() {
       "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
     }[s]));
   }
+
+  /** زر صغير للنسخ داخل الشبكة */
+  const SmallCopyBtn = ({ onClick, active }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      style={{
+        marginInlineStart: 8,
+        padding: "4px 8px",
+        fontSize: 12,
+        borderRadius: 8,
+        border: "1px solid #334155",
+        background: "transparent",
+        color: "#e2e8f0",
+        cursor: "pointer"
+      }}
+      title="نسخ"
+    >
+      {active ? "نُسِخ ✓" : "نسخ"}
+    </button>
+  );
 
   return (
     <article className="page">
@@ -244,13 +273,35 @@ export default function Lookup() {
             <div className="result-value">{result.name || "-"}</div>
 
             <div className="result-label">الرمز التعريفي</div>
-            <div className="result-value">{code}</div>
+            <div className="result-value" style={{display:"flex", alignItems:"center"}}>
+              <span>{code}</span>
+              <SmallCopyBtn
+                onClick={() => handleCopyValue(code, "enteredCode")}
+                active={copiedKey === "enteredCode"}
+              />
+            </div>
 
             <div className="result-label">الإيميل</div>
-            <div className="result-value">{result.product || "-"}</div>
+            <div className="result-value" style={{display:"flex", alignItems:"center"}}>
+              <span>{result.product || "-"}</span>
+              {!!result.product && (
+                <SmallCopyBtn
+                  onClick={() => handleCopyValue(result.product, "email")}
+                  active={copiedKey === "email"}
+                />
+              )}
+            </div>
 
             <div className="result-label">الكود</div>
-            <div className="result-value">{result.duration || "-"}</div>
+            <div className="result-value" style={{display:"flex", alignItems:"center"}}>
+              <span>{result.duration || "-"}</span>
+              {!!result.duration && (
+                <SmallCopyBtn
+                  onClick={() => handleCopyValue(result.duration, "code")}
+                  active={copiedKey === "code"}
+                />
+              )}
+            </div>
 
             <div className="result-label">السعر</div>
             <div className="result-value">
@@ -282,7 +333,7 @@ export default function Lookup() {
 
           {/* أزرار العمليات */}
           <div className="result-actions">
-            <button type="button" className="btn ghost" onClick={handleCopy}>
+            <button type="button" className="btn ghost" onClick={handleCopyAll}>
               {copied ? "تم النسخ ✓" : "نسخ التفاصيل"}
             </button>
             <button type="button" className="btn" onClick={handleDownloadPDF}>
