@@ -246,10 +246,10 @@ export default function Lookup() {
             <div className="result-label">الكود</div>
             <div className="result-value">{code}</div>
 
-            <div className="result-label">المنتج</div>
+            <div className="result-label">الإيميل</div>
             <div className="result-value">{result.product || "-"}</div>
 
-            <div className="result-label">المدة</div>
+            <div className="result-label">الكود</div>
             <div className="result-value">{result.duration || "-"}</div>
 
             <div className="result-label">السعر</div>
@@ -274,7 +274,7 @@ export default function Lookup() {
 
             {result.notes && (
               <>
-                <div className="result-label">ملاحظات</div>
+                <div className="result-label"> معلومات الحساب</div>
                 <div className="result-value">{result.notes}</div>
               </>
             )}
