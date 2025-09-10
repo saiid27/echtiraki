@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Contact from "./pages/Contact.jsx";
+import About from "./pages/About.jsx";
 import "./styles.css";
 
 /* =========================
@@ -452,7 +453,7 @@ function WhatsAppButton() {
 function BottomBar() {
   return (
     <nav className="bottombar">
-      <a href="https://echtiraki.blogspot.com/p/about.html">من نحن</a>
+      <Link to="/about">من نحن</Link>
       <a href="#privacy">سياسة الخصوصية</a>
       
       
@@ -663,7 +664,11 @@ export default function App() {
             )
           }
         />
-        <Route path="/contact" element={<Contact />} />
+        
+  
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/about" element={<About />} />  {/* ✅ */}
+
       </Routes>
 
       {/* نافذة تفاصيل المنتج */}
