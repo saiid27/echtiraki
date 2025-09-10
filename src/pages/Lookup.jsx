@@ -243,7 +243,7 @@ export default function Lookup() {
             <div className="result-label">الاسم</div>
             <div className="result-value">{result.name || "-"}</div>
 
-            <div className="result-label">الكود</div>
+            <div className="result-label">الرمز التعريفي</div>
             <div className="result-value">{code}</div>
 
             <div className="result-label">الإيميل</div>
