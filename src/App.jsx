@@ -1,8 +1,12 @@
 // src/App.jsx
 import { useMemo, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Contact from "./pages/Contact.jsx";
 import "./styles.css";
 
-
+/* =========================
+   ترجمات الواجهة
+========================= */
 const LOCALES = {
   ar: {
     brand: "اشتراكي",
@@ -82,9 +86,7 @@ const LOCALES = {
 };
 
 /* =========================
-   بيانات المنتجات
-   - أضفنا حقول اختيارية:
-     descByLang / howToByLang / videoUrl / links
+   بيانات المنتجات (مع أوصاف وفيديو وروابط اختيارية)
 ========================= */
 const PRODUCTS = [
   {
@@ -95,23 +97,13 @@ const PRODUCTS = [
     img: "/ntflx.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
     descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Compte Netflix prêt — le produit sera fourni immédiatement après paiement. ",
-      en: "Netflix account ready — the product will be delivered immediately after payment.",
+      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
+      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
+      en: "Netflix account ready — delivered immediately after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -123,24 +115,14 @@ const PRODUCTS = [
     price: 500,
     img: "/ntflx.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
-   descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Compte Netflix prêt — le produit sera fourni immédiatement après paiement. ",
-      en: "Netflix account ready — the product will be delivered immediately after payment.",
+    descByLang: {
+      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
+      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
+      en: "Netflix account ready — delivered immediately after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -152,24 +134,14 @@ const PRODUCTS = [
     price: 350,
     img: "/gpt.jpg",
     keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
-   descByLang: {
-      ar: "حساب شات جي بي تي جاهز سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Compte chat gpt prêt — le produit sera fourni immédiatement après paiement. ",
-      en: "Netflix chat gpt ready — the product will be delivered immediately after payment.",
+    descByLang: {
+      ar: "حساب شات جي بي تي جاهز — التسليم بعد الدفع مباشرة",
+      fr: "Compte ChatGPT prêt — fourni immédiatement après paiement.",
+      en: "ChatGPT account ready — delivered immediately after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -181,24 +153,14 @@ const PRODUCTS = [
     price: 800,
     img: "/gpt.jpg",
     keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
-  descByLang: {
-      ar: "حساب شات جيبي تي جاهز سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Compte chat gpt prêt — le produit sera fourni immédiatement après paiement. ",
-      en: "chat gpt account ready — the product will be delivered immediately after payment.",
+    descByLang: {
+      ar: "حساب شات جي بي تي جاهز — التسليم بعد الدفع مباشرة",
+      fr: "Compte ChatGPT prêt — fourni immédiatement après paiement.",
+      en: "ChatGPT account ready — delivered immediately after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -210,24 +172,10 @@ const PRODUCTS = [
     price: 270,
     img: "/snapchat.jpg",
     keywords: ["سناب شات", "snap", "snap plus", "سناب"],
- descByLang: {
-      ar: " سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: "  — le produit sera fourni immédiatement après paiement. ",
-      en: " — the product will be delivered immediately after payment.",
-    },
+    descByLang: { ar: "التسليم بعد الدفع مباشرة", fr: "Fourniture immédiate après paiement.", en: "Delivered after payment." },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -239,24 +187,10 @@ const PRODUCTS = [
     price: 500,
     img: "/snapchat.jpg",
     keywords: ["سناب شات", "snap", "snap plus", "سناب"],
-   descByLang: {
-      ar: " تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " le produit sera fourni immédiatement après paiement. ",
-      en: "— the product will be delivered immediately after payment.",
-    },
+    descByLang: { ar: "التسليم بعد الدفع مباشرة", fr: "Fourniture immédiate après paiement.", en: "Delivered after payment." },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -267,25 +201,15 @@ const PRODUCTS = [
     duration: "infinie-مدى الحياة",
     price: 200,
     img: "/canva.jpg",
-    keywords: [" كانفا", "كانفا برو", "canva ", "canva pro"],
-  descByLang: {
-      ar: "حساب كانفا برو مدي الحياة سيتم شحن حسابك الخاس و تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Compte Canva pro privée — le produit sera fourni immédiatement après paiement. ",
-      en: "canva pro account privaite — the product will be delivered immediately after payment.",
+    keywords: ["كانفا", "كانفا برو", "canva", "canva pro"],
+    descByLang: {
+      ar: "كانفا برو مدى الحياة — يشحن على حسابك مباشرة بعد الدفع",
+      fr: "Canva Pro à vie — livré sur votre compte après paiement.",
+      en: "Canva Pro lifetime — delivered to your account after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -296,25 +220,11 @@ const PRODUCTS = [
     duration: "1 mois ",
     price: 520,
     img: "/capcut.jpg",
-    keywords: [" كابكات", "كابكات برو", "capcut ", "capcut pro"],
-   descByLang: {
-      ar: "سنقوم بشحن  حسابك الخاص بكابكات وسيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: "  le produit sera fourni immédiatement après paiement. ",
-      en: " the product will be delivered immediately after payment.",
-    },
+    keywords: ["كابكات", "كابكات برو", "capcut", "capcut pro"],
+    descByLang: { ar: "نشحن على حسابك مباشرة — التسليم فوري", fr: "Livraison immédiate après paiement.", en: "Immediate delivery." },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -325,25 +235,11 @@ const PRODUCTS = [
     duration: "1 mois",
     price: 800,
     img: "/meta.jpg",
-    keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
-   descByLang: {
-      ar: " سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: "  le produit sera fourni immédiatement après paiement. ",
-      en: " the product will be delivered immediately after payment.",
-    },
+    keywords: ["فيسبوك", "توثيق", "facebook", "meta"],
+    descByLang: { ar: "التسليم بعد الدفع مباشرة", fr: "Fourniture immédiate après paiement.", en: "Delivered after payment." },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -354,25 +250,15 @@ const PRODUCTS = [
     duration: "infinie-مدى الحياة",
     price: 1000,
     img: "/adobe.jpg",
-    keywords: [" فيسبوك", "توثيق", " facebook", "meta"],
-   descByLang: {
-      ar: "برامج  جاهزة سيتم تسليم المنتج بعد الدفع مباشرة  ",
-      fr: " Application prêt — le produit sera fourni immédiatement après paiement. ",
-      en: "Application ready — the product will be delivered immediately after payment.",
+    keywords: ["adobe", "photoshop", "illustrator"],
+    descByLang: {
+      ar: "برامج جاهزة — التسليم فوري بعد الدفع",
+      fr: "Apps prêtes — fournies immédiatement après paiement.",
+      en: "Ready apps — delivered immediately after payment.",
     },
     howToByLang: {
-      ar: [
-        "  اطلب المنتج من الموقع.",
-        " سيتم توجيهك الي الواتساب   .",
-        "اضغط ارسال ",
-        "ستجد فريق الدعم في انتظارك ويجيب عليك ",
-      ],
-      fr: [
-        "Commandez le produit depuis le site",
-        "Vous serez redirigé vers WhatsApp",
-        "Appuyez sur Envoyer.",
-        "Notre équipe d’assistance vous attendra et vous répondra.",
-      ],
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "#",
     links: [{ label: "FAQ", url: "#" }],
@@ -382,23 +268,18 @@ const PRODUCTS = [
 /* =========================
    Helpers
 ========================= */
-// إرجاع اسم العرض (يمكن لاحقًا تخصيصه لكل لغة)
-function getDisplayName(item, ) {
+function getDisplayName(item /*, lang */) {
   return item.name;
 }
 
-// يسقط إلى لغة بديلة إذا النص غير متوفر
 function pickLocalized(obj, lang, fallbacks = ["ar", "fr", "en"]) {
   if (!obj) return null;
   if (obj[lang]) return obj[lang];
-  for (const fb of fallbacks) {
-    if (obj[fb]) return obj[fb];
-  }
+  for (const fb of fallbacks) if (obj[fb]) return obj[fb];
   const any = Object.values(obj)[0];
   return any || null;
 }
 
-// استخراج YouTube ID من روابط متعددة الأشكال
 function getYouTubeId(url = "") {
   try {
     const u = new URL(url);
@@ -407,11 +288,15 @@ function getYouTubeId(url = "") {
     const parts = u.pathname.split("/");
     const i = parts.indexOf("embed");
     if (i >= 0 && parts[i + 1]) return parts[i + 1];
-  } catch {}
+  } catch (e) {
+    return null; // ✅ لا تترك catch فارغ (إصلاح ESLint)
+  }
   return null;
 }
 
-
+/* =========================
+   بطاقة المنتج
+========================= */
 function ProductCard({ item, onSelect, onDetails, t }) {
   return (
     <div className="card">
@@ -552,7 +437,7 @@ function ProductDetailsModal({ item, t, lang, onClose, onSelect }) {
 const ADMIN_PHONE = import.meta.env.VITE_ADMIN_PHONE || "+22234605765";
 
 /* =========================
-   Models أخرى
+   مكوّنات إضافية
 ========================= */
 function WhatsAppButton() {
   const url = `https://wa.me/${ADMIN_PHONE}`;
@@ -569,8 +454,10 @@ function BottomBar() {
     <nav className="bottombar">
       <a href="https://echtiraki.blogspot.com/p/about.html">من نحن</a>
       <a href="#privacy">سياسة الخصوصية</a>
-      <a href="#terms">كيفية الشراء</a>
-      <a href="https://echtiraki.blogspot.com/p/div-transformtranslatey0-opacity1.html">اتصل بنا</a>
+      
+      
+      {/* رابط داخلي لصفحة اتصال داخل التطبيق */}
+      <Link to="/contact">اتصل بنا </Link>
     </nav>
   );
 }
@@ -703,7 +590,6 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [preview, setPreview] = useState(null); // نافذة التفاصيل
 
-  // فلترة المنتجات حسب البحث (الاسم + الكلمات المفتاحية)
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return PRODUCTS;
@@ -719,14 +605,15 @@ export default function App() {
       {/* الهيدر */}
       <header className="topbar">
         <div className="brand">
-          <img
-            src="/LOG.jpg"
-            alt="logo"
-            className="brand-logo"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
+          {/* بإمكانك جعل الشعار يعيدك للرئيسية */}
+          <Link to="/" style={{ display: "inline-flex", alignItems: "center" }}>
+            <img
+              src="/LOG.jpg"
+              alt="logo"
+              className="brand-logo"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
+          </Link>
         </div>
 
         <div className="topbar-actions">
@@ -751,25 +638,33 @@ export default function App() {
         </div>
       </header>
 
-      {/* المحتوى */}
-      {!selected ? (
-        <div className="grid">
-          {filtered.map((p) => (
-            <ProductCard
-              key={`${p.id}-${p.duration}-${p.price}`} // لتفادي تكرار id
-              item={p}
-              onSelect={setSelected}
-              onDetails={setPreview}
-              t={t}
-            />
-          ))}
-          {filtered.length === 0 && (
-            <div className="empty">لا توجد نتائج مطابقة لبحثك.</div>
-          )}
-        </div>
-      ) : (
-        <CheckoutForm selected={selected} onBack={() => setSelected(null)} t={t} lang={lang} />
-      )}
+      {/* المحتوى داخل Routes */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            !selected ? (
+              <div className="grid">
+                {filtered.map((p) => (
+                  <ProductCard
+                    key={`${p.id}-${p.duration}-${p.price}`}
+                    item={p}
+                    onSelect={setSelected}
+                    onDetails={setPreview}
+                    t={t}
+                  />
+                ))}
+                {filtered.length === 0 && (
+                  <div className="empty">لا توجد نتائج مطابقة لبحثك.</div>
+                )}
+              </div>
+            ) : (
+              <CheckoutForm selected={selected} onBack={() => setSelected(null)} t={t} lang={lang} />
+            )
+          }
+        />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
       {/* نافذة تفاصيل المنتج */}
       <ProductDetailsModal
@@ -780,13 +675,12 @@ export default function App() {
         onSelect={setSelected}
       />
 
+      {/* الشريط السفلي + زر واتساب + الفوتر */}
       <BottomBar />
       <WhatsAppButton />
 
       <footer className="foot">
-        <h3>
-          echtiraki © {new Date().getFullYear()} | dev. med said mohameden moctar ellahi
-        </h3>
+        <h3>echtiraki © {new Date().getFullYear()} | dev. med said mohameden moctar ellahi</h3>
         <h4>Modes de paiement: طرق الدفع</h4>
         <img src="/bank.jpg" className="pay" width="200px" height="50%" />
       </footer>
