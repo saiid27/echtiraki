@@ -240,7 +240,7 @@ export default function Lookup() {
           <div className="result-title">تفاصيل الطلب</div>
 
           <div className="result-grid">
-            <div className="result-label">الاسم</div>
+            <div className="result-label">اسم الزبون</div>
             <div className="result-value">{result.name || "-"}</div>
 
             <div className="result-label">الرمز التعريفي</div>
