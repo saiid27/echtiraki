@@ -4,6 +4,10 @@ import { Routes, Route, Link } from "react-router-dom";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import Privacy from "./pages/Privacy.jsx";
+
+import Lookup from "./pages/Lookup.jsx";
+
+
 import "./styles.css";
 
 /* =========================
@@ -460,6 +464,10 @@ function BottomBar() {
       
       {/* رابط داخلي لصفحة اتصال داخل التطبيق */}
       <Link to="/contact">اتصل بنا </Link>
+
+ <Link to="/lookup">تحقّق من طلبك</Link> {/* جديد */}
+
+
     </nav>
   );
 }
@@ -670,6 +678,9 @@ export default function App() {
   <Route path="/contact" element={<Contact />} />
   <Route path="/about" element={<About />} />  {/* ✅ */}
   <Route path="/privacy" element={<Privacy />} />
+
+<Route path="/lookup" element={<Lookup />} />
+
 
       </Routes>
 
