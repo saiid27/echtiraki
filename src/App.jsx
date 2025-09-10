@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
+import Privacy from "./pages/Privacy.jsx";
 import "./styles.css";
 
 /* =========================
@@ -454,7 +455,7 @@ function BottomBar() {
   return (
     <nav className="bottombar">
       <Link to="/about">من نحن</Link>
-      <a href="#privacy">سياسة الخصوصية</a>
+      <Link to="/privacy">سياسة الخصوصية</Link>
       
       
       {/* رابط داخلي لصفحة اتصال داخل التطبيق */}
@@ -668,6 +669,7 @@ export default function App() {
   
   <Route path="/contact" element={<Contact />} />
   <Route path="/about" element={<About />} />  {/* ✅ */}
+  <Route path="/privacy" element={<Privacy />} />
 
       </Routes>
 
