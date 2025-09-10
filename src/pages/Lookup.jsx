@@ -199,14 +199,14 @@ export default function Lookup() {
 
   return (
     <article className="page">
-      <h1>تحقّق من طلبك</h1>
+      <h1> طلبك</h1>
       <p style={{ opacity: 0.8, marginTop: -6 }}>
-        أدخل اسمك والرقم السري للتحقق من المنتج (يُطابق الاسم بدون حساسية حالة).
+        أدخل اسمك والرمز التعريفي  لعرض منتجك .
       </p>
 
       <form className="form" onSubmit={onSubmit} style={{ marginTop: 12 }}>
         <label>
-          الاسم
+          الإسم
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -214,11 +214,11 @@ export default function Lookup() {
           />
         </label>
         <label>
-          الرقم السري
+          الرمز التعريفي 
           <input
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="مثال: 2707"
+            placeholder="مثال: 12345"
           />
         </label>
 
