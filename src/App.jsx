@@ -111,8 +111,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "FAQ", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "netflix_uhd",
@@ -131,7 +131,7 @@ const PRODUCTS = [
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "FAQ", url: "#" }],
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "chat-gpt plus",
@@ -149,8 +149,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+      videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "chat-gpt plus",
@@ -168,8 +168,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "snap chat- plus",
@@ -183,8 +183,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "snap chat- plus",
@@ -198,8 +198,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "canva-pro",
@@ -217,8 +217,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "capcut pro",
@@ -232,8 +232,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "meta verified",
@@ -247,8 +247,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "adobe",
@@ -266,8 +266,8 @@ const PRODUCTS = [
       ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
-    videoUrl: "#",
-    links: [{ label: "FAQ", url: "#" }],
+     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
 ];
 
