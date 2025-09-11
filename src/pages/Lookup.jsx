@@ -333,7 +333,7 @@ export default function Lookup() {
 
           {/* أزرار العمليات */}
           <div className="result-actions">
-            <button type="button" className="btn ghost" onClick={handleCopyAll}>
+            <button type="button" className="btn" onClick={handleCopyAll}>
               {copied ? "تم النسخ ✓" : "نسخ التفاصيل"}
             </button>
             <button type="button" className="btn" onClick={handleDownloadPDF}>

@@ -300,6 +300,51 @@ function getYouTubeId(url = "") {
   return null;
 }
 
+
+
+/* Google Drive preview link */
+function toDrivePreview(urlOrId = "") {
+  if (!urlOrId) return null;
+  if (!urlOrId.startsWith("http")) {
+    return `https://drive.google.com/file/d/${urlOrId}/preview`;
+  }
+  try {
+    const u = new URL(urlOrId);
+    let id = "";
+    const parts = u.pathname.split("/");
+    const i = parts.indexOf("d");
+    if (i >= 0 && parts[i + 1]) id = parts[i + 1];
+    else id = u.searchParams.get("id") || "";
+    return id ? `https://drive.google.com/file/d/${id}/preview` : urlOrId;
+  } catch {
+    return urlOrId;
+  }
+}
+
+/* بطاقة الفيديو */
+function VideoCard({ title, driveUrlOrId }) {
+  const src = toDrivePreview(driveUrlOrId);
+  return (
+    <div className="video-card">
+      <div className="video-card__media">
+        <iframe src={src} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowFullScreen />
+      </div>
+      {title && <div className="video-card__title">{title}</div>}
+    </div>
+  );
+}
+
+/* صف الفيديوهات */
+function VideosRow({ videos = [] }) {
+  return (
+    <section className="videos-row">
+      {videos.map((v, i) => (
+        <VideoCard key={i} {...v} />
+      ))}
+    </section>
+  );
+}
+
 /* =========================
    بطاقة المنتج
 ========================= */
@@ -645,8 +690,30 @@ export default function App() {
             <option value="fr">Français</option>
             <option value="en">English</option>
           </select>
+          
         </div>
+        
       </header>
+{/* قسم الفيديوهات */}
+<div className="video-section">
+  <div className="video-left">
+    <iframe
+      src="https://drive.google.com/file/d/1KB2ZWqf8dG3uEwdtLsOzeJ8bo-yKN2vH/preview"
+      allow="autoplay"
+      style={{ width: "100%", height: "200px", border: "none", borderRadius: "8px" }}
+      title="Video Left"
+    />
+  </div>
+
+  <div className="video-right">
+    <iframe
+      src="https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview"
+      allow="autoplay"
+      style={{ width: "100%", height: "200px", border: "none", borderRadius: "8px" }}
+      title="Video Right"
+    />
+  </div>
+</div>
 
       {/* المحتوى داخل Routes */}
       <Routes>
