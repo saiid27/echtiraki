@@ -112,7 +112,7 @@ const PRODUCTS = [
       fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
     },
     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "FAQ", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
     id: "netflix_uhd",
