@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- الصفحة الرئيسية -->
   <url>
-    <loc>https://echtiraki.site/</loc>
+    <loc>https://www.echtiraki.site/#/</loc>
     <priority>1.0</priority>
   </url>
+
+  <!-- صفحة من نحن -->
   <url>
-    <loc>https://echtiraki.site/about</loc>
+    <loc>https://www.echtiraki.site/#/about</loc>
     <priority>0.8</priority>
   </url>
+
+  <!-- صفحة تواصل معنا -->
   <url>
-    <loc>https://echtiraki.site/contact</loc>
+    <loc>https://www.echtiraki.site/#/contact</loc>
     <priority>0.8</priority>
   </url>
+
+  <!-- صفحة سياسة الخصوصية -->
+  <url>
+    <loc>https://www.echtiraki.site/#/privacy</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- صفحة المنتجات -->
+  <url>
+    <loc>https://www.echtiraki.site/#/lookup</loc>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
