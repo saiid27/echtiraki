@@ -71,13 +71,12 @@ export default function SnapRecharge() {
   // نص الطلبات
   const waText = useMemo(() => {
     const { username, phone, region, plan, notes } = form;
-    return `📢 طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\nالمنص
-    ة     ${region.trim() || "---"}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nملاحظات: ${notes.trim() || "-"}`;
+    return `📢 طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\n المنصة:  ${region.trim() || "---"}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nملاحظات: ${notes.trim() || "-"}`;
   }, [form]);
 
   const mailBody = useMemo(() => {
     const { username, phone, region, plan, notes, email } = form;
-    return `طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\nالمنصة ${region.trim()}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nالبريد: ${email.trim() || "---"}\n\nالملاحظات:\n${(notes || "").trim()}`;
+    return `طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\n   :المنصة ${region.trim()}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nالبريد: ${email.trim() || "---"}\n\nالملاحظات:\n${(notes || "").trim()}`;
   }, [form]);
 
   // إرسال
