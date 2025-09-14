@@ -71,7 +71,7 @@ export default function SnapRecharge() {
   // نص الطلبات
   const waText = useMemo(() => {
     const { username, phone, region, plan, notes } = form;
-    return `📢 طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\n المنصة:  ${region.trim() || "---"}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nملاحظات: ${notes.trim() || "-"}`;
+    return `🛒 طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\nالهاتف: ${phone.trim()}\n المنصة:  ${region.trim() || "---"}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nملاحظات: ${notes.trim() || "-"}`;
   }, [form]);
 
   const mailBody = useMemo(() => {
