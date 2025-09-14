@@ -72,7 +72,7 @@ export default function SnapRecharge() {
   const waText = useMemo(() => {
     const {  username, phone, region, plan, notes, email } = form;
    
-     return `🛒طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\n  الواتساب : ${phone.trim()}\n   :المنصة ${region.trim()}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nالبريد: ${email.trim() || "---"}\n\nالملاحظات:\n${(notes || "").trim()}`;
+     return `🛒طلب إعلان ممول\n\nاسم الصفحة: ${username.trim()}\n  الواتساب : ${phone.trim()}\n  المنصة  : ${region.trim()}\nالباقة: ${planLabel(plan)}\nالسعر: ${fmtMRU(planPrice(plan))}\nالبريد: ${email.trim() || "---"}\n\nالملاحظات:\n${(notes || "").trim()}`;
   }, [form]);
  
  
