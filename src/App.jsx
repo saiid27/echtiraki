@@ -7,11 +7,13 @@ import Privacy from "./pages/Privacy.jsx";
 
 import Lookup from "./pages/Lookup.jsx";
 
+import AdsRecharge from "./pages/AdsRecharge.jsx";
 
 import "./styles.css";
 
 /* =========================
    ترجمات الواجهة
+   
 ========================= */
 const LOCALES = {
   ar: {
@@ -694,6 +696,17 @@ export default function App() {
         </div>
         
       </header>
+      <div className="topbar-actions">
+  <div>
+   {/* 👇 الزر الجديد */}
+  <Link to="/ads-recharge" className="btn primary top-action">
+    الإعلانات الممولة📢 Ads fb,Tiktok
+  </Link>
+</div>
+
+
+</div>
+
 {/* قسم الفيديوهات */}
 <div className="video-section">
   <div className="video-left">
@@ -740,8 +753,9 @@ export default function App() {
             )
           }
         />
-        
-  
+       <Route path="/ads-recharge" element={<AdsRecharge />} /> 
+
+
   <Route path="/contact" element={<Contact />} />
   <Route path="/about" element={<About />} />  {/* ✅ */}
   <Route path="/privacy" element={<Privacy />} />
@@ -771,4 +785,5 @@ export default function App() {
       </footer>
     </div>
   );
-}
+} 
+
