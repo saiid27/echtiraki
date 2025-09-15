@@ -99,7 +99,7 @@ const LOCALES = {
 const PRODUCTS = [
   {
     id: "netflix_uhd",
-    name: "Netflix 4K",
+    name: "Netflix 4K (حساب مشترك )",
     duration: "1 mois",
     price: 250,
     img: "/ntflx.jpg",
@@ -118,7 +118,7 @@ const PRODUCTS = [
   },
   {
     id: "netflix_uhd",
-    name: "Netflix 4K",
+    name: "Netflix 4K (حساب مشترك )",
     duration: "3 mois",
     price: 500,
     img: "/ntflx.jpg",
@@ -136,8 +136,8 @@ const PRODUCTS = [
     links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
-    id: "chat-gpt plus",
-    name: "chat-gpt plus",
+    id: "chat-gpt plus ",
+    name: "chat-gpt plus(حساب مشترك )",
     duration: " 1 mois",
     price: 280,
     img: "/gpt.jpg",
@@ -155,8 +155,8 @@ const PRODUCTS = [
     links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
   {
-    id: "chat-gpt plus",
-    name: "chat-gpt plus",
+    id: "chat-gpt plus ",
+    name: "chat-gpt plus (حساب مشترك )",
     duration: "3 mois",
     price: 800,
     img: "/gpt.jpg",
@@ -205,7 +205,7 @@ const PRODUCTS = [
   },
   {
     id: "canva-pro",
-    name: "canva pro",
+    name: "canva pro (حساب خاص )",
     duration: "infinie-مدى الحياة",
     price: 200,
     img: "/canva.jpg",
@@ -224,7 +224,7 @@ const PRODUCTS = [
   },
   {
     id: "capcut pro",
-    name: " capcut pro",
+    name: " capcut pro (حساب خاص )",
     duration: "1 mois ",
     price: 520,
     img: "/capcut.jpg",
@@ -239,7 +239,7 @@ const PRODUCTS = [
   },
   {
     id: "meta verified",
-    name: "meta verified-توثيق حساب فيسبوك ",
+    name: "meta verified-توثيق صفحة فيسبوك ",
     duration: "1 mois",
     price: 800,
     img: "/meta.jpg",
