@@ -173,6 +173,25 @@ const PRODUCTS = [
     videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
     links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
   },
+   {
+    id: "chat-gpt plus ",
+    name: "chat-gpt plus (حساب خاص )",
+    duration: "1 mois",
+    price: 880,
+    img: "/gpt.jpg",
+    keywords: ["شات جي بي تي", "chat-gpt", "الذكاء الاصطناعي", "gpt"],
+    descByLang: {
+      ar: "حساب شات جي بي تي جاهز — التسليم بعد الدفع مباشرة",
+      fr: "Compte ChatGPT prêt — fourni immédiatement après paiement.",
+      en: "ChatGPT account ready — delivered immediately after payment.",
+    },
+    howToByLang: {
+      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
+      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
+    },
+    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
+    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
+  },
   {
     id: "snap chat- plus",
     name: "snap chat- plus",
