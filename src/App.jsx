@@ -783,67 +783,38 @@ const TESTIMONIALS = [
 
   {
     id: 3,
-    name: "A El H.",
+    name: "Aminetou bibi.",
     avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    text: " واجهتني مشكلة في معرفة كيفية وضع القفل علي نافذتي تواصلت معهم وتعلمت حل المشكلة",
     rating: 4,
   },
 
  {
     id: 3,
-    name: "A El H.",
+    name: "sidi cheikh.",
     avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    text: " فريق دعم رائع .",
     rating: 4,
   }, {
     id: 3,
-    name: "A El H.",
+    name: "jemal mohamed.",
     avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    text: "    اشتركت في اسناب شات حقا رائع وامن",
     rating: 4,
   }, {
     id: 3,
-    name: "A El H.",
+    name: "elghalya moctar.",
     avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    text: " حسابات مشتركة امنة جربت نتفليكس وchat-gpt.",
     rating: 4,
   }, {
     id: 3,
-    name: "A El H.",
+    name: "Tourad cheikh ahmed.",
     avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
-    rating: 4,
-  }, {
-    id: 3,
-    name: "A El H.",
-    avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
-    rating: 4,
-  }, {
-    id: 3,
-    name: "A El H.",
-    avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
-    rating: 4,
-  }, {
-    id: 3,
-    name: "A El H.",
-    avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
-    rating: 4,
-  }, {
-    id: 3,
-    name: "A El H.",
-    avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
-    rating: 4,
-  }, {
-    id: 3,
-    name: "A El H.",
-    avatar: "/avatars/ahmed.jpg",
-    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    text: "لم أثق بهاذ الموقع في البداية ولكنني جربت حساب canva proحقا اكثرمن رائع.",
     rating: 4,
   },
+
 
 ];
 
