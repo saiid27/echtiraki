@@ -223,6 +223,7 @@ a { color: inherit; }
   transform: translateX(50%) translateY(-2px);
 }
 
+
 /* ====== الشريط السفلي الثابت ====== */
 .bottombar {
   position: fixed; left: 0; right: 0; bottom: 0;
@@ -542,4 +543,133 @@ a { color: inherit; }
   .video-section iframe {
     height: 160px; /* ارتفاع أقل على الموبايل */
   }
+}
+/* زر/رابط كبسولي موحّد مثل bottombar */
+.nav-pill {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color .2s ease, background .2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* لو أضفت أيقونة لاحقاً */
+}
+
+/* نفس تأثير الهوفر حق bottombar */
+.nav-pill:hover {
+  color: #38bdf8;
+  background: rgba(56,189,248,.08);
+}
+
+/* حاوية بسيطة لتوسيط الزر تحت الهيدر */
+.top-cta {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 14px;
+}
+.bottombar a,
+.nav-pill {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color .2s ease, background .2s ease;
+}
+
+.bottombar a:hover,
+.nav-pill:hover {
+  color: #38bdf8;
+  background: rgba(56,189,248,.08);
+}
+
+/* ============ Testimonials ============ */
+.testimonials {
+  max-width: 1100px;
+  margin: 32px auto 16px;
+  padding: 16px;
+  background: var(--line);
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+.t-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.t-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.t-sub {
+  margin: 6px 0 0;
+  color: #f7f6f6;
+  font-size: 0.95rem;
+}
+
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.t-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px;
+  background: #f5f2f2;
+}
+
+.t-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.t-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+}
+
+.t-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.t-name {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.t-stars {
+  color: #f5a623; /* نجوم ذهبية */
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.t-text {
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* استجابة الجوال */
+@media (max-width: 900px) {
+  .t-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .t-grid { grid-template-columns: 1fr; }
 }

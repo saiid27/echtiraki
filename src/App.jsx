@@ -101,7 +101,7 @@ const PRODUCTS = [
    {
     id: "netflix_uhd",
     name: "Canva pro + chat-gpt 1 mois",
-    duration: "1 mois",
+    duration: "",
     price: 350,
     img: "/chat-canva.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
@@ -121,7 +121,7 @@ const PRODUCTS = [
   {
     id: "netflix_uhd",
     name: "Snapchat-plus 3 mois + chat-gpt 1 mois",
-    duration: "1 mois",
+    duration: "",
     price: 400,
     img: "/chat-snap.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
@@ -141,7 +141,7 @@ const PRODUCTS = [
 {
     id: "netflix_uhd",
     name: "Snapchat-plus 3 mois + Netflix 1 mois",
-    duration: "1 mois",
+    duration: "",
     price: 450,
   img: "/net_snap.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
@@ -160,7 +160,7 @@ const PRODUCTS = [
    {
     id: "netflix_uhd",
     name: "Snapchat-plus 3 mois + Canva pro",
-    duration: "1 mois",
+    duration: "",
     price: 500,
     img: "/snap-canva.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
@@ -328,7 +328,7 @@ const PRODUCTS = [
     id: "capcut pro",
     name: " capcut pro (حساب خاص )",
     duration: "1 mois ",
-    price: 520,
+    price: 800,
     img: "/capcut.jpg",
     keywords: ["كابكات", "كابكات برو", "capcut", "capcut pro"],
     descByLang: { ar: "نشحن على حسابك مباشرة — التسليم فوري", fr: "Livraison immédiate après paiement.", en: "Immediate delivery." },
@@ -597,12 +597,28 @@ const ADMIN_PHONE = import.meta.env.VITE_ADMIN_PHONE || "+22234605765";
 function WhatsAppButton() {
   const url = `https://wa.me/${ADMIN_PHONE}`;
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="whatsapp-btn"
+      aria-label="تواصل عبر واتساب"
+    >
+      {/* أيقونة واتساب SVG */}
+      <svg
+        className="wa-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.149-.198.297-.768.966-.941 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.074-.149-.672-1.611-.921-2.206-.242-.579-.487-.5-.672-.51-.173-.009-.372-.011-.571-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.571-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.237-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.642 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.003 5.45-4.437 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.3-1.654a11.88 11.88 0 005.684 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.473-8.413z"/>
+      </svg>
+
       <span className="whatsapp-tooltip">تواصل معنا على واتساب</span>
-      💬
     </a>
   );
 }
+
 
 function BottomBar() {
   return (
@@ -738,6 +754,144 @@ function CheckoutForm({ selected, onBack, t, lang }) {
   );
 }
 
+
+/* =========================
+   تعليقات الزبناء (Testimonials)
+========================= */
+const TESTIMONIALS = [
+  {
+    id: 1,
+    name: "محمد سالم",
+    avatar: "/avatars/mohamed.jpg", // ضع الصورة في public/avatars
+    text: "خدمة ممتازة والتسليم فوري. أنصح الجميع بالتعامل معهم.",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Fatou Diop",
+    avatar: "/avatars/fatou.jpg",
+    text: "جودة رائعة وسرعة في الرد على الاستفسارات. تجربة موفقة!",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Ahmed El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  },
+
+  {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  },
+
+ {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  }, {
+    id: 3,
+    name: "A El H.",
+    avatar: "/avatars/ahmed.jpg",
+    text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
+    rating: 4,
+  },
+
+];
+
+function StarRating({ value = 5 }) {
+  const stars = Array.from({ length: 5 }, (_, i) => (i < value ? "★" : "☆"));
+  return <span className="t-stars" aria-label={`Rating: ${value} of 5`}>{stars.join(" ")}</span>;
+}
+
+function Testimonials({ lang = "ar" }) {
+  const titles = { ar: "تعليقات الزبناء", fr: "Avis des clients", en: "Customer Reviews" };
+  const subtitle = {
+    ar: "آراء حقيقية من زبناء اشتروا من منصتنا",
+    fr: "Des avis réels de clients ayant acheté sur notre plateforme",
+    en: "Real feedback from customers who bought via our platform",
+  };
+
+  return (
+    <section className="testimonials">
+      <div className="t-header">
+        <h2 className="t-title">{titles[lang] || titles.ar}</h2>
+        <p className="t-sub">{subtitle[lang] || subtitle.ar}</p>
+      </div>
+
+      <div className="t-grid">
+        {TESTIMONIALS.map((t) => (
+          <article key={t.id} className="t-card" itemScope itemType="https://schema.org/Review">
+            <div className="t-top">
+              <img
+                src={t.avatar}
+                alt={t.name}
+                className="t-avatar"
+                loading="lazy"
+                width="56"
+                height="56"
+              />
+              <div className="t-meta">
+                <div className="t-name" itemProp="author">{t.name}</div>
+                <StarRating value={t.rating} />
+              </div>
+            </div>
+            <p className="t-text" itemProp="reviewBody">{t.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* =========================
    التطبيق الرئيسي
 ========================= */
@@ -798,16 +952,14 @@ export default function App() {
         </div>
         
       </header>
-      <div className="topbar-actions">
-  <div>
-   {/* 👇 الزر الجديد */}
-  <Link to="/ads-recharge" className="btn primary top-action">
+      {/* تحت الهيدر مباشرة بدل الـ <div className="topbar-actions"> الحالية */}
+<div className="top-cta">
+  <Link to="/ads-recharge" className="nav-pill">
     الإعلانات الممولة📢 Ads fb,Tiktok
   </Link>
+ 
 </div>
 
-
-</div>
 
 {/* قسم الفيديوهات */}
 <div className="video-section">
@@ -879,12 +1031,15 @@ export default function App() {
       {/* الشريط السفلي + زر واتساب + الفوتر */}
       <BottomBar />
       <WhatsAppButton />
-
+ 
       <footer className="foot">
         <h3>echtiraki © {new Date().getFullYear()} | dev. med said mohameden moctar ellahi</h3>
         <h4>Modes de paiement: طرق الدفع</h4>
         <img src="/bank.jpg" className="pay" width="200px" height="50%" />
       </footer>
+
+ <Testimonials lang={lang} />
+
     </div>
   );
 } 
