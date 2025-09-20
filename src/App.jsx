@@ -762,7 +762,7 @@ const TESTIMONIALS = [
   {
     id: 1,
     name: "محمد سالم",
-    avatar: "/avatars/mohamed.jpg", // ضع الصورة في public/avatars
+    avatar: "/avatar.jpg", // ضع الصورة في public/avatars
     text: "خدمة ممتازة والتسليم فوري. أنصح الجميع بالتعامل معهم.",
     rating: 5,
   },
@@ -776,15 +776,15 @@ const TESTIMONIALS = [
   {
     id: 3,
     name: "Ahmed El H.",
-    avatar: "/avatars/ahmed.jpg",
+   avatar: "/avatar.jpg",
     text: "سعر مناسب والخدمة محترفة، سأكرر الطلب إن شاء الله.",
     rating: 4,
   },
 
   {
     id: 3,
-    name: "Aminetou bibi.",
-    avatar: "/avatars/ahmed.jpg",
+    name: "Aminetou bibih.",
+    avatar: "/mra2.jpg",
     text: " واجهتني مشكلة في معرفة كيفية وضع القفل علي نافذتي تواصلت معهم وتعلمت حل المشكلة",
     rating: 4,
   },
@@ -792,25 +792,25 @@ const TESTIMONIALS = [
  {
     id: 3,
     name: "sidi cheikh.",
-    avatar: "/avatars/ahmed.jpg",
+   avatar: "/avatar.jpg",
     text: " فريق دعم رائع .",
     rating: 4,
   }, {
     id: 3,
     name: "jemal mohamed.",
-    avatar: "/avatars/ahmed.jpg",
+    avatar: "/rajel1.jpg",
     text: "    اشتركت في اسناب شات حقا رائع وامن",
     rating: 4,
   }, {
     id: 3,
     name: "elghalya moctar.",
-    avatar: "/avatars/ahmed.jpg",
+    avatar: "/mra1.jpg",
     text: " حسابات مشتركة امنة جربت نتفليكس وchat-gpt.",
     rating: 4,
   }, {
     id: 3,
     name: "Tourad cheikh ahmed.",
-    avatar: "/avatars/ahmed.jpg",
+    avatar: "/avatar.jpg",
     text: "لم أثق بهاذ الموقع في البداية ولكنني جربت حساب canva proحقا اكثرمن رائع.",
     rating: 4,
   },
