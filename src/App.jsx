@@ -98,97 +98,19 @@ const LOCALES = {
 ========================= */
 const PRODUCTS = [
 
-   {
-    id: "netflix_uhd",
-    name: "Canva pro + chat-gpt 1 mois",
-    duration: "",
-    price: 350,
-    img: "/chat-canva.jpg",
-    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
-    descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
-      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
-      en: "Netflix account ready — delivered immediately after payment.",
-    },
-    howToByLang: {
-      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
-      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
-    },
-    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
-    
-  },
-  {
-    id: "netflix_uhd",
-    name: "Snapchat-plus 3 mois + chat-gpt 1 mois",
-    duration: "",
-    price: 400,
-    img: "/chat-snap.jpg",
-    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
-    descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
-      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
-      en: "Netflix account ready — delivered immediately after payment.",
-    },
-    howToByLang: {
-      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
-      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
-    },
-    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
-  },
-
-{
-    id: "netflix_uhd",
-    name: "Snapchat-plus 3 mois + Netflix 1 mois",
-    duration: "",
-    price: 450,
-  img: "/net_snap.jpg",
-    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
-    descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
-      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
-      en: "Netflix account ready — delivered immediately after payment.",
-    },
-    howToByLang: {
-      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
-      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
-    },
-    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
-  },
-   {
-    id: "netflix_uhd",
-    name: "Snapchat-plus 3 mois + Canva pro",
-    duration: "",
-    price: 500,
-    img: "/snap-canva.jpg",
-    keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
-    descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
-      fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
-      en: "Netflix account ready — delivered immediately after payment.",
-    },
-    howToByLang: {
-      ar: ["اطلب المنتج من الموقع.", "سيتم توجيهك إلى الواتساب.", "اضغط إرسال.", "فريق الدعم يتابع معك."],
-      fr: ["Commander depuis le site", "Redirection vers WhatsApp", "Appuyer sur Envoyer", "Support vous répond"],
-    },
-    videoUrl: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview",
-    links: [{ label: "المنتج", url: "https://drive.google.com/file/d/1AduxJBugx12FQlpZKEgDj-8llrqEkI6L/preview" }],
-  },
-
+  
   
 
    
   {
-    id: "netflix_uhd",
+    id: "_uhd",
     name: "Netflix 4K (حساب مشترك )",
     duration: "1 mois",
     price: 250,
     img: "/ntflx.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
     descByLang: {
-      ar: "حساب نتفليكس جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
+      ar: "حساب  جاهز سيتم تسليم المنتج بعد الدفع مباشرة",
       fr: "Compte Netflix prêt — fourni immédiatement après paiement.",
       en: "Netflix account ready — delivered immediately after payment.",
     },
