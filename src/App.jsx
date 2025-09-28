@@ -106,7 +106,7 @@ const PRODUCTS = [
     id: "_uhd",
     name: "Netflix 4K (حساب مشترك )",
     duration: "1 mois",
-    price: 250,
+    price: 270,
     img: "/ntflx.jpg",
     keywords: ["نتفلكس", "Netflix", "UHD", "4K"],
     descByLang: {
@@ -201,7 +201,7 @@ const PRODUCTS = [
     id: "snap chat- plus",
     name: "snap chat- plus",
     duration: "3 mois",
-    price: 250,
+    price: 270,
     img: "/snapchat.jpg",
     keywords: ["سناب شات", "snap", "snap plus", "سناب"],
     descByLang: { ar: "التسليم بعد الدفع مباشرة", fr: "Fourniture immédiate après paiement.", en: "Delivered after payment." },
