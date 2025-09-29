@@ -673,3 +673,88 @@ a { color: inherit; }
 @media (max-width: 600px) {
   .t-grid { grid-template-columns: 1fr; }
 }
+
+
+
+
+/* توسيط السلايدر */
+.hero-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+/* أصغر: عرض لا يتجاوز 320px افتراضياً */
+.slider {
+  position: relative;
+  width: min(100vw - 32px, 320px); /* كان 430px */
+  max-width: 320px;
+  aspect-ratio: 9 / 16;            /* طولاني */
+  max-height: 70vh;                /* كان 85vh */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  margin-inline: auto;
+  background: #000;                /* مفيد مع contain */
+}
+
+/* لو تريد تصغير الارتفاع أكثر، بدّل 70vh إلى 60vh مثلاً */
+
+/* الصورة */
+.slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* جرّب contain إن أردت أصغر بصرياً بدون قص */
+}
+
+/* أزرار أصغر */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  width: 28px;   /* كان 36px */
+  height: 28px;  /* كان 36px */
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+.slider-btn.prev { left: 6px; }
+.slider-btn.next { right: 6px; }
+
+/* نقاط أصغر */
+.slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+.slider-dots .dot {
+  width: 6px; height: 6px; /* كان 8px */
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+.slider-dots .dot.active { background: rgba(255,255,255,0.95); }
+
+/* على الشاشات الصغيرة جداً: املأ تقريباً العرض لكن لا تكبر الارتفاع */
+@media (max-width: 380px) {
+  .slider {
+    width: calc(100vw - 24px);
+    max-height: 65vh;
+  }
+}
+
+/* على الديسكتوب: ثبّت الصغر أكثر */
+@media (min-width: 768px) {
+  .slider {
+    max-width: 300px;  /* أصغر على الشاشات الكبيرة */
+  }
+}
