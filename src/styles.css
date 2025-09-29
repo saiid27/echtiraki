@@ -744,17 +744,7 @@ a { color: inherit; }
 }
 .slider-dots .dot.active { background: rgba(255,255,255,0.95); }
 
-/* على الشاشات الصغيرة جداً: املأ تقريباً العرض لكن لا تكبر الارتفاع */
-@media (max-width: 380px) {
-  .slider {
-    width: calc(100vw - 24px);
-    max-height: 65vh;
-  }
-}
+.brand-texts, .brand-name, .brand-sub { display: none !important; }
 
-/* على الديسكتوب: ثبّت الصغر أكثر */
-@media (min-width: 768px) {
-  .slider {
-    max-width: 300px;  /* أصغر على الشاشات الكبيرة */
-  }
-}
+
+
