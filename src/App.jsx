@@ -739,7 +739,7 @@ export default function App() {
       {/* بدل الفيديوهات: سلايدر صور */}
       <div className="hero-slider">
         <ImageSlider
-          images={["/pay12.png", "/pay2.jpg", "/chat-snap.jpg"]}
+          images={["/pay12.png", ]}
           intervalMs={3500}
           alt={lang === "fr" ? "Promos" : "عروض"}
         />
