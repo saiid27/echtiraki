@@ -636,7 +636,11 @@ const TESTIMONIALS = [
   { id: 6, name: "jemal mohamed.", avatar: "/rajel1.jpg", text: "اشتركت في اسناب شات حقا رائع وامن", rating: 4 },
   { id: 7, name: "elghalya moctar.", avatar: "/mra1.jpg", text: "حسابات مشتركة امنة جربت نتفليكس وchat-gpt.", rating: 4 },
   { id: 8, name: "Tourad cheikh ahmed.", avatar: "/avatar.jpg", text: "لم أثق بهاذ الموقع في البداية ولكنني جربت حساب canva proحقا اكثرمن رائع.", rating: 4 },
+  { id: 9, name: "Moustave salem", avatar: "/avatar.jpg", text: "حك حك زين ومرسي فريماه chat gpt privée مشترك عندكم   .", rating: 4 },
+ { id: 10, name: "mariém", avatar: "/avatar.jpg", text: "site web respectable et fiable avecc une équipe d'assistance aimable et attentionnée j'ai souscrit à leurs services et j'ai reçu ma commende avec une rapidité et un professionnalisme remarquables .", rating: 4 },
 ];
+
+
 
 function StarRating({ value = 5 }) {
   const stars = Array.from({ length: 5 }, (_, i) => (i < value ? "★" : "☆"));
